@@ -1,18 +1,12 @@
 export function Hero() {
   return (
     <section
-      className="min-h-screen pt-[120px] pb-section-gap px-10 flex flex-col justify-center"
+      className="min-h-screen pt-[120px] px-10 flex flex-col justify-center max-w-[1440px] mx-auto"
       id="hero"
     >
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-        <div className="md:col-span-6 space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 border border-primary-container/30 rounded-sm">
-            <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-            <span className="font-label-caps text-label-caps text-primary-container uppercase">
-              System Online: Protocol v4.0.1
-            </span>
-          </div>
-          <h1 className="font-display-lg text-display-lg md:text-[100px] leading-[0.9] tracking-tighter">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+        <div className="lg:col-span-7 space-y-6 md:space-y-8">
+          <h1 className="font-display-lg text-[48px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-tighter">
             Custom Machine Learning Architecture.{" "}
             <span className="text-primary-container">Engineered for Scale.</span>
           </h1>
@@ -21,15 +15,15 @@ export function Hero() {
             Precision engineering for the next generation of data-driven
             intelligence.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="bg-primary-container text-on-primary font-label-caps text-label-caps px-10 py-5 rounded-none transition-transform hover:brightness-110 active:scale-95 uppercase">
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <button className="bg-primary-container text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-none transition-transform hover:brightness-110 active:scale-95 uppercase">
               START INFERENCE
             </button>
-            <button className="border border-outline-variant/30 text-on-surface font-label-caps text-label-caps px-10 py-5 rounded-none transition-all hover:bg-on-surface/5 active:scale-95 uppercase">
+            <button className="border border-outline-variant/30 text-on-surface font-label-caps text-label-caps px-8 py-4 rounded-none transition-all hover:bg-on-surface/5 active:scale-95 uppercase">
               VIEW FRAMEWORKS
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-8 pt-12 border-t border-outline-variant/20">
+          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-outline-variant/20">
             <div>
               <p className="font-data-metric text-data-metric text-on-surface">
                 99.98%
@@ -56,8 +50,8 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <div className="md:col-span-6 relative flex justify-end items-center mt-12 md:mt-0">
-          <div className="relative w-full aspect-square md:aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden bento-border">
+        <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-center mt-12 lg:mt-0">
+          <div className="relative w-full max-w-[400px] lg:max-w-md xl:max-w-[480px] aspect-square bg-surface-container-low rounded-lg overflow-hidden bento-border">
             <img
               alt="Neural Network Visual"
               className="w-full h-full object-cover mix-blend-lighten opacity-80"
