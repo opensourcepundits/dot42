@@ -1,0 +1,8 @@
+{
+  "name": "Machine Learning Architecture (.42)",
+  "description": "A high-performance landing page for a custom machine learning architecture and data pipeline firm, built with React, Vite, and Tailwind CSS using a deep-space technical aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
