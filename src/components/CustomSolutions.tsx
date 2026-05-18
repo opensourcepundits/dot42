@@ -19,10 +19,10 @@ export function CustomSolutions() {
           <div className="bento-card rounded-lg p-8 flex flex-col gap-4 group hover:border-primary-container/50 transition-colors">
             <Globe className="text-primary-container w-9 h-9" />
             <h4 className="font-headline-lg text-2xl text-on-surface">
-              Frontends
+              Frontend
             </h4>
             <p className="font-body-md text-on-surface-variant text-sm">
-              Websites, dashboards, and enterprise-grade mobile apps built for
+              Enterprise-grade websites, dashboards, and mobile apps built for
               performance.
             </p>
           </div>

@@ -34,7 +34,7 @@ export function Process() {
                     STEP 1
                   </p>
                   <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Automated inbound triaging & technical stack profiling.
+                    Inbound triaging & technical stack profiling.
                   </p>
                 </div>
                 <div className="space-y-1">
@@ -42,8 +42,8 @@ export function Process() {
                     STEP 2
                   </p>
                   <p className="font-body-md text-sm text-on-surface-variant/60">
-                    30-minute strategic alignment call (evaluating business
-                    bottlenecks).
+                    Strategic alignment call as well as evaluating business
+                    bottlenecks.
                   </p>
                 </div>
                 <div className="space-y-1">
@@ -166,7 +166,7 @@ export function Process() {
               </h3>
               <p className="font-body-lg text-on-surface-variant">
                 Transforming raw enterprise data assets into high-performance,
-                containerized ML microservices.
+                containerized ML microservices (as per requirements and agreement).
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/20">
                 <div className="space-y-1">
