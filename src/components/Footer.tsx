@@ -11,7 +11,7 @@ export function Footer() {
           .42
         </div>
         <p className="font-label-caps text-label-caps text-on-surface-variant max-w-xs leading-loose uppercase">
-          © 2024 .42 ARCHITECTURES. ALL RIGHTS RESERVED. PROTOCOL v4.0.1
+          © 2026 .42 ARCHITECTURES. ALL RIGHTS RESERVED. PROTOCOL v4.0.1
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-8">
@@ -45,7 +45,7 @@ export function Footer() {
           <Code2 className="text-on-surface w-5 h-5" />
         </div>
         <div className="w-10 h-10 flex items-center justify-center border border-outline-variant/30 rounded-full hover:bg-primary-container/10 transition-colors cursor-pointer">
-           <Terminal className="text-on-surface w-5 h-5" />
+          <Terminal className="text-on-surface w-5 h-5" />
         </div>
       </div>
     </footer>
