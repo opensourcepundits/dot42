@@ -206,44 +206,432 @@ const DefectGraphic = () => (
   </div>
 );
 
-const cvServices = [
+const NetworkNodesGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,180,216,0.05)_1px,transparent_1px)] bg-[length:16px_16px]" />
+    <svg viewBox="0 0 100 100" className="w-[80%] h-[80%] md:w-[60%] md:h-[60%] z-10 overflow-visible drop-shadow-[0_0_8px_rgba(0,229,255,0.15)]">
+      <motion.line x1="20" y1="50" x2="50" y2="20" stroke="#00e5ff" strokeWidth="1" strokeDasharray="2 2" animate={{ strokeDashoffset: [0, 20] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
+      <motion.line x1="50" y1="20" x2="80" y2="50" stroke="#00e5ff" strokeWidth="1" strokeDasharray="2 2" animate={{ strokeDashoffset: [0, -20] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
+      <motion.line x1="80" y1="50" x2="50" y2="80" stroke="#00e5ff" strokeWidth="1" strokeDasharray="2 2" animate={{ strokeDashoffset: [0, 20] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
+      <motion.line x1="50" y1="80" x2="20" y2="50" stroke="#00e5ff" strokeWidth="1" strokeDasharray="2 2" animate={{ strokeDashoffset: [0, -20] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
+      <motion.line x1="50" y1="20" x2="50" y2="80" stroke="#bac9cc" strokeWidth="0.5" />
+      <motion.line x1="20" y1="50" x2="80" y2="50" stroke="#bac9cc" strokeWidth="0.5" />
+
+      <motion.circle cx="50" cy="50" r="4" fill="#00daf3" animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+      <circle cx="20" cy="50" r="3" fill="#bac9cc" />
+      <circle cx="50" cy="20" r="3" fill="#bac9cc" />
+      <circle cx="80" cy="50" r="3" fill="#bac9cc" />
+      <circle cx="50" cy="80" r="3" fill="#bac9cc" />
+
+      <circle cx="35" cy="35" r="1.5" fill="#fff" />
+      <circle cx="65" cy="35" r="1.5" fill="#fff" />
+      <circle cx="65" cy="65" r="1.5" fill="#fff" />
+      <circle cx="35" cy="65" r="1.5" fill="#fff" />
+    </svg>
+    <div className="absolute top-4 left-4 font-label-caps text-[8px] md:text-[10px] text-primary-container opacity-60">
+      <p>AGENT_TOPOLOGY: ACTIVE</p>
+      <p>NODES: OPTIMIZED</p>
+    </div>
+  </div>
+);
+
+const PipelineGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <div className="flex gap-4 items-center">
+      <motion.div className="w-12 h-16 border border-primary-container/50 bg-primary-container/10 flex items-center justify-center rounded" animate={{ borderColor: ["var(--color-primary-container)", "rgba(0,229,255,0.2)", "var(--color-primary-container)"] }} transition={{ duration: 2, repeat: Infinity, delay: 0 }}>
+        <div className="w-4 h-1 bg-primary-container rounded-full" />
+      </motion.div>
+      <motion.div className="w-8 h-[1px] bg-primary-container/30" animate={{ scaleX: [0, 1], originX: 0 }} transition={{ duration: 2, repeat: Infinity }} />
+      <motion.div className="w-12 h-16 border border-primary-container/50 bg-primary-container/10 flex items-center justify-center rounded" animate={{ borderColor: ["rgba(0,229,255,0.2)", "var(--color-primary-container)", "rgba(0,229,255,0.2)"] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}>
+        <div className="w-4 h-1 bg-primary-container rounded-full" />
+      </motion.div>
+      <motion.div className="w-8 h-[1px] bg-primary-container/30" animate={{ scaleX: [0, 1], originX: 0 }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
+      <motion.div className="w-12 h-16 border border-primary-container/50 bg-primary-container/10 flex flex-col items-center justify-center gap-1 rounded" animate={{ borderColor: ["rgba(0,229,255,0.2)", "rgba(0,229,255,0.2)", "var(--color-primary-container)"] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }}>
+        <div className="w-4 h-1 bg-primary-container rounded-full" />
+        <div className="w-4 h-1 bg-primary-container rounded-full opacity-50" />
+      </motion.div>
+    </div>
+  </div>
+);
+
+const ShieldGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <svg viewBox="0 0 100 100" className="w-[60%] h-[60%] z-10 drop-shadow-[0_0_8px_rgba(0,229,255,0.2)]">
+      <motion.path
+        d="M 50 10 L 80 25 L 80 55 C 80 75 50 90 50 90 C 50 90 20 75 20 55 L 20 25 Z"
+        fill="rgba(0,229,255,0.05)" stroke="#00e5ff" strokeWidth="2"
+        animate={{ strokeDasharray: ["0 300", "300 0"] }} transition={{ duration: 3, repeat: Infinity }}
+      />
+      <path d="M 50 10 L 80 25 L 80 55 C 80 75 50 90 50 90 C 50 90 20 75 20 55 L 20 25 Z" fill="rgba(0,229,255,0.02)" stroke="#bac9cc" strokeWidth="0.5" />
+
+      <rect x="40" y="40" width="20" height="15" rx="2" fill="#bac9cc" />
+      <path d="M 45 40 V 35 A 5 5 0 0 1 55 35 V 40" fill="none" stroke="#bac9cc" strokeWidth="2" />
+      <circle cx="50" cy="47.5" r="2" fill="#00daf3" />
+
+      <motion.circle cx="50" cy="50" r="40" fill="none" stroke="#00daf3" strokeWidth="0.5" animate={{ scale: [0.8, 1.2], opacity: [0.5, 0] }} transition={{ duration: 2, repeat: Infinity }} />
+    </svg>
+  </div>
+);
+
+const ChartGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-end justify-center overflow-hidden min-h-[250px] md:min-h-[300px] p-8">
+    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <motion.path d="M 0 80 Q 20 70 40 50 T 80 30 L 100 20" fill="none" stroke="#bac9cc" strokeWidth="1" strokeDasharray="2 2" />
+      <motion.path
+        d="M 0 90 Q 20 80 40 40 T 80 20 L 100 10"
+        fill="none" stroke="#00e5ff" strokeWidth="2"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <path d="M 0 90 Q 20 80 40 40 T 80 20 L 100 10 L 100 100 L 0 100 Z" fill="rgba(0,229,255,0.1)" />
+      <circle cx="40" cy="40" r="3" fill="#00daf3" />
+      <circle cx="80" cy="20" r="3" fill="#00daf3" />
+
+      <motion.line x1="40" y1="40" x2="40" y2="100" stroke="#00e5ff" strokeWidth="0.5" strokeDasharray="1 1" animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 1.5, repeat: Infinity }} />
+      <motion.line x1="80" y1="20" x2="80" y2="100" stroke="#00e5ff" strokeWidth="0.5" strokeDasharray="1 1" animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }} />
+    </svg>
+  </div>
+);
+
+const MatrixGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <div className="grid grid-cols-5 gap-2 p-8 w-full h-full">
+      {Array.from({ length: 25 }).map((_, i) => (
+        <motion.div
+          key={i}
+          className="bg-primary-container/20 rounded-sm"
+          animate={{ opacity: [0.2, 0.8, 0.2] }}
+          transition={{ duration: Math.random() * 2 + 1, repeat: Infinity, delay: Math.random() * 2 }}
+        />
+      ))}
+    </div>
+  </div>
+);
+
+const ChipGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <svg viewBox="0 0 100 100" className="w-[60%] h-[60%] z-10 drop-shadow-[0_0_8px_rgba(0,229,255,0.2)]">
+      <rect x="30" y="30" width="40" height="40" rx="4" fill="rgba(0,229,255,0.05)" stroke="#00e5ff" strokeWidth="1.5" />
+      <rect x="35" y="35" width="30" height="30" rx="2" fill="none" stroke="#bac9cc" strokeWidth="0.5" />
+
+      {/* Pins top */}
+      <line x1="40" y1="20" x2="40" y2="30" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="50" y1="20" x2="50" y2="30" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="60" y1="20" x2="60" y2="30" stroke="#bac9cc" strokeWidth="1" />
+      {/* Pins bottom */}
+      <line x1="40" y1="70" x2="40" y2="80" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="50" y1="70" x2="50" y2="80" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="60" y1="70" x2="60" y2="80" stroke="#bac9cc" strokeWidth="1" />
+      {/* Pins left */}
+      <line x1="20" y1="40" x2="30" y2="40" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="20" y1="50" x2="30" y2="50" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="20" y1="60" x2="30" y2="60" stroke="#bac9cc" strokeWidth="1" />
+      {/* Pins right */}
+      <line x1="70" y1="40" x2="80" y2="40" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="70" y1="50" x2="80" y2="50" stroke="#bac9cc" strokeWidth="1" />
+      <line x1="70" y1="60" x2="80" y2="60" stroke="#bac9cc" strokeWidth="1" />
+
+      <motion.circle cx="50" cy="50" r="8" fill="#00daf3" stroke="none" animate={{ scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }} transition={{ duration: 1.5, repeat: Infinity }} />
+      <motion.circle cx="50" cy="50" r="16" fill="none" stroke="#00e5ff" strokeWidth="0.5" animate={{ scale: [1, 2], opacity: [1, 0] }} transition={{ duration: 1.5, repeat: Infinity }} />
+    </svg>
+  </div>
+);
+
+const TerminalGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex flex-col p-6 overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <div className="flex gap-2 mb-4">
+      <div className="w-3 h-3 rounded-full bg-outline-variant/50" />
+      <div className="w-3 h-3 rounded-full bg-outline-variant/50" />
+      <div className="w-3 h-3 rounded-full bg-outline-variant/50" />
+    </div>
+    <div className="font-mono text-xs md:text-sm text-primary-container/80 flex flex-col gap-2">
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>&gt; Initializing MCP server...</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}>&gt; Binding protocol to local standard...</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>&gt; Connect: PostgreSQL Database</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.0 }} className="text-[#ffb4ab]">&gt; ENFORCING RBAC POLICIES</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }} className="flex items-center gap-2">&gt; Status: OK <motion.span animate={{ opacity: [0, 1] }} transition={{ repeat: Infinity, duration: 0.8 }} className="w-2 h-4 bg-primary-container inline-block" /></motion.p>
+    </div>
+  </div>
+);
+
+const ServerRackGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px] p-8">
+    <div className="w-[80%] max-w-[200px] flex flex-col gap-3">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="h-12 border border-primary-container/30 rounded bg-surface-container flex items-center px-4 gap-4 relative overflow-hidden">
+          <div className="w-2 h-2 rounded-full bg-[#00daf3] shadow-[0_0_8px_#00daf3]" />
+          <div className="w-2 h-2 rounded-full bg-outline-variant" />
+          <div className="flex-1" />
+          <div className="w-16 h-2 bg-primary-container/20 rounded overflow-hidden">
+            <motion.div className="h-full bg-primary-container" animate={{ width: ["20%", "80%", "40%"] }} transition={{ duration: 2 + i, repeat: Infinity, ease: "linear" }} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const DocScanGraphic = () => (
+  <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+    <svg viewBox="0 0 100 100" className="w-[50%] h-[50%] z-10 drop-shadow-[0_0_8px_rgba(0,229,255,0.2)]">
+      <path d="M 30 20 L 60 20 L 70 30 L 70 80 L 30 80 Z" fill="rgba(0,229,255,0.05)" stroke="#bac9cc" strokeWidth="1" />
+      <path d="M 60 20 L 60 30 L 70 30" fill="none" stroke="#bac9cc" strokeWidth="1" />
+
+      <line x1="38" y1="40" x2="62" y2="40" stroke="#bac9cc" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="38" y1="50" x2="62" y2="50" stroke="#bac9cc" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="38" y1="60" x2="55" y2="60" stroke="#bac9cc" strokeWidth="1.5" strokeLinecap="round" />
+
+      <motion.line
+        x1="20" y1="20" x2="80" y2="20"
+        stroke="#00e5ff" strokeWidth="1.5"
+        filter="drop-shadow(0 0 4px #00e5ff)"
+        animate={{ y1: [20, 80, 20], y2: [20, 80, 20] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      />
+    </svg>
+  </div>
+);
+
+const specializationData = [
   {
-    title: "Medical Image Analysis",
-    description: "High-precision anomaly detection in complex medical imagery (MRI, CT, X-Ray) using custom segmentation architectures.",
-    metrics: ["99.8% SENSITIVITY", "<2ms LATENCY"],
-    Graphic: MedicalGraphic
+    id: "cv",
+    index: "01",
+    label: "SPATIAL INTEL",
+    title: "Computer Vision & Spatial Intelligence",
+    description: "We engineer high-fidelity vision pipelines using custom segmentation and spatial tracking models. From advanced kinetic analysis to automated industrial inspection, we transform raw pixels into deterministic operational data.",
+    icon: Focus,
+    colSpan: "md:col-span-4",
+    services: [
+      {
+        title: "Medical Image Analysis",
+        description: "High-precision anomaly detection in complex medical imagery (MRI, CT, X-Ray) using custom segmentation architectures.",
+        metrics: ["99.8% SENSITIVITY", "<2ms LATENCY"],
+        Graphic: MedicalGraphic
+      },
+      {
+        title: "Real-Time Gesture Recognition",
+        description: "Low-latency spatial mapping and skeletal tracking for advanced human-computer interaction and intent prediction.",
+        metrics: ["60fps+ TRACKING", "SUB-MM ACCURACY"],
+        Graphic: GestureGraphic
+      },
+      {
+        title: "Semantic Image Segmentation",
+        description: "Pixel-perfect classification frameworks designed for autonomous navigation and complex scene understanding.",
+        metrics: ["CUSTOM CLASSES", "EDGE-OPTIMIZED"],
+        Graphic: SegmentationGraphic
+      },
+      {
+        title: "Automated Defect Detection",
+        description: "Industrial-grade visual inspection pipelines capable of identifying microscopic manufacturing flaws at production line speeds.",
+        metrics: ["ZERO-DEFECT GOAL", "HIGH THROUGHPUT"],
+        Graphic: DefectGraphic
+      }
+    ]
   },
   {
-    title: "Real-Time Gesture Recognition",
-    description: "Low-latency spatial mapping and skeletal tracking for advanced human-computer interaction and intent prediction.",
-    metrics: ["60fps+ TRACKING", "SUB-MM ACCURACY"],
-    Graphic: GestureGraphic
+    id: "llm",
+    index: "02",
+    label: "COGNITIVE SYSTEMS",
+    title: "Large Language Models & Agentic Networks",
+    description: "Move beyond basic chatbots. We architect secure, private LLM pipelines and autonomous multi-agent networks that execute complex, multi-step enterprise workflows with strict deterministic accuracy and zero data leakage.",
+    icon: Network,
+    colSpan: "md:col-span-8",
+    tags: ["AUTONOMOUS_AGENTS", "ZERO_LEAKAGE", "PRIVATE_PIPELINES", "DETERMINISTIC"],
+    services: [
+      {
+        title: "Autonomous Agentic Workflows",
+        description: "Multi-agent systems that break down complex enterprise goals into executable, verifiable steps with distinct tool-use constraints.",
+        metrics: ["ZERO HALLUCINATION", "CHAIN-OF-THOUGHT"],
+        Graphic: NetworkNodesGraphic
+      },
+      {
+        title: "Private Enterprise LLMs",
+        description: "Locally hosted or securely siloed Foundation Models fine-tuned on your proprietary intelligence with strict access controls.",
+        metrics: ["100% DATA PRIVACY", "ON-PREM DEPLOYMENT"],
+        Graphic: ShieldGraphic
+      },
+      {
+        title: "Deterministic RAG Pipelines",
+        description: "Advanced Retrieval-Augmented Generation architectures that trace every output back to a verified, timestamped internal source document.",
+        metrics: ["EXACT CITATIONS", "SEMANTIC SEARCH"],
+        Graphic: PipelineGraphic
+      }
+    ]
   },
   {
-    title: "Semantic Image Segmentation",
-    description: "Pixel-perfect classification frameworks designed for autonomous navigation and complex scene understanding.",
-    metrics: ["CUSTOM CLASSES", "EDGE-OPTIMIZED"],
-    Graphic: SegmentationGraphic
+    id: "predictive",
+    index: "03",
+    label: "MATHEMATICAL ARCHITECTURE",
+    title: "Multi-Variate Stochastic Architectures",
+    description: "We engineer custom mathematical architectures and advanced algorithmic models designed to isolate signals within high-dimensional corporate noise. Anticipate demand surges, quantify risk parameters, and automate strategic decision-making with validated confidence intervals and rigorous mathematical precision.",
+    icon: LineChart,
+    colSpan: "md:col-span-7",
+    services: [
+      {
+        title: "Systemic Market Volatility & Liquidity Crises Modeling",
+        description: "Financial engineering models that predict market volatility and liquidity crises, providing early warning systems for systemic risk.",
+        metrics: ["VOLATILITY MODEL", "CRISIS PREDICTION"],
+        Graphic: ChartGraphic
+      },
+      {
+        title: "Multi-Asset Portfolio Tail-Risk Isolation",
+        description: "Algorithmic isolation of tail-risk events across multi-asset portfolios to computationally protect enterprise capital.",
+        metrics: ["TAIL-RISK", "ASSET ISOLATION"],
+        Graphic: ShieldGraphic
+      },
+      {
+        title: "Real-Time Enterprise Fraud & Money Laundering Detection",
+        description: "High-dimensional detection matrices that identify anomalous financial patterns and money laundering vectors in real-time.",
+        metrics: ["REAL-TIME AML", "FRAUD DETECTION"],
+        Graphic: MatrixGraphic
+      },
+      {
+        title: "High-Frequency Operational Telemetry Analysis",
+        description: "Continuous mathematical analysis of high-frequency operational telemetry to predict systemic failures before they occur.",
+        metrics: ["SUB-SECOND DATA", "TELEMETRY SIGS"],
+        Graphic: TerminalGraphic
+      },
+      {
+        title: "Global Logistics & Route Topology Optimization",
+        description: "Algorithmic optimization of complex global logistics networks and route topologies, minimizing latency and maximizing payload efficiency.",
+        metrics: ["TOPOLOGY OPT", "GLOBAL LOGISTICS"],
+        Graphic: NetworkNodesGraphic
+      },
+      {
+        title: "Algorithmic Manufacturing Yield & Defect Analysis",
+        description: "Applying sophisticated statistical mathematics to analyze manufacturing yields, identifying the root causes of microscopic defects.",
+        metrics: ["YIELD ANALYSIS", "STATISTICAL QC"],
+        Graphic: DefectGraphic
+      },
+      {
+        title: "Smart Grid Energy Load & Storage Balancing",
+        description: "Mathematical balancing operations applied to smart grid energy loads and storage, ensuring optimal distribution under fluctuating demand.",
+        metrics: ["LOAD BALANCING", "SMART GRID"],
+        Graphic: ServerRackGraphic
+      },
+      {
+        title: "Hyper-Dimensional Customer Churn Prediction",
+        description: "Projecting customer behavioral metrics into hyper-dimensional space to accurately predict and intercept churn events.",
+        metrics: ["CHURN INTERCEPT", "MULTI-DIMENSIONAL"],
+        Graphic: ChartGraphic
+      },
+      {
+        title: "Bespoke Customer Lifetime Value (CLV)",
+        description: "Creating bespoke, highly accurate CLV attribution algorithms based on nuanced transactional and interactional histories.",
+        metrics: ["CLV ATTRIBUTION", "LIFETIME VALUE"],
+        Graphic: PipelineGraphic
+      },
+      {
+        title: "Dynamic Micro-Segmentation Engines",
+        description: "Clustering millions of consumers across thousands of behavioral attributes to serve highly target-optimized product recommendations without relying on broad, generic demographics.",
+        metrics: ["MICRO-SEGMENTS", "BEHAVIORAL VARS"],
+        Graphic: NetworkNodesGraphic
+      }
+    ]
   },
   {
-    title: "Automated Defect Detection",
-    description: "Industrial-grade visual inspection pipelines capable of identifying microscopic manufacturing flaws at production line speeds.",
-    metrics: ["ZERO-DEFECT GOAL", "HIGH THROUGHPUT"],
-    Graphic: DefectGraphic
+    id: "edge",
+    index: "04",
+    label: "HARDWARE_OPTIMIZED",
+    title: "Edge AI & Embedded Machine Learning",
+    description: "We optimize and compile custom neural networks for localized hardware environments (NVIDIA Jetson, embedded systems, mobile applications). Achieve sub-millisecond local inference speeds while eliminating cloud compute dependencies entirely.",
+    icon: Cpu,
+    colSpan: "md:col-span-5",
+    services: [
+      {
+        title: "Local Inference Optimization",
+        description: "Model quantization (INT8/FP16) and pruning techniques to fit massive intelligence into constrained hardware profiles.",
+        metrics: ["<1ms LATENCY", "LOW POWER DRAW"],
+        Graphic: ChipGraphic
+      },
+      {
+        title: "Air-Gapped Systems Setup",
+        description: "Complete operational autonomy for critical infrastructure requiring zero external network pings.",
+        metrics: ["ZERO DEPENDENCY", "MAX SECURITY"],
+        Graphic: ServerRackGraphic
+      }
+    ]
+  },
+  {
+    id: "document",
+    index: "05",
+    label: "SEMANTIC INFRASTRUCTURE",
+    title: "Document Intelligence & Cognitive File Infrastructure",
+    description: "We replace rigid, traditional folder hierarchies with semantic document intelligence pipelines. By parsing and vectorizing unstructured multi-format data at scale, we build custom knowledge infrastructure.",
+    icon: FileText,
+    colSpan: "md:col-span-6",
+    services: [
+      {
+        title: "Multimodal Layout Extraction & Spatial Decomposition",
+        description: "Leveraging custom OCR algorithms to parse unstructured PDFs, separating interleaved text, multi-axis tables, complex mathematical equations, and charts into structured Markdown.",
+        metrics: ["CUSTOM OCR", "SPATIAL MAPPING"],
+        Graphic: DocScanGraphic
+      },
+      {
+        title: "Semantic Document Chunking",
+        description: "Preserving context using intelligent boundaries for advanced Retrieval-Augmented Generation (RAG) architectures, rather than naive token splitting.",
+        metrics: ["RAG OPTIMIZED", "CONTEXT AWARE"],
+        Graphic: MatrixGraphic
+      },
+      {
+        title: "Automated Composed Model Pipelines",
+        description: "Automated composed model invoice and receipt pipelines designed for high-accuracy extraction of line-item data and financial details from dense, variable layouts.",
+        metrics: ["HIGH ACCURACY", "COMPOSED MODEL"],
+        Graphic: PipelineGraphic
+      },
+      {
+        title: "Data Residency-Compliant Ingestion",
+        description: "Deploying containerized cognitive processing services directly inside secure on-premise Kubernetes clusters, completely ensuring that sensitive data undergoes zero exposure to external cloud frameworks.",
+        metrics: ["ZERO EXPOSURE", "ON-PREM CLUSTER"],
+        Graphic: ServerRackGraphic
+      }
+    ]
+  },
+  {
+    id: "mcp",
+    index: "06",
+    label: "OPEN_STANDARDS",
+    title: "Model Context Protocol (MCP) Frameworks",
+    description: "We design and deploy open-standard MCP servers to anchor your agentic workflows. Standardizing the interface between foundational LLMs and your internal data layers while maintaining strict row-level access controls.",
+    icon: Terminal,
+    colSpan: "md:col-span-6",
+    services: [
+      {
+        title: "Custom MCP Server Deployment",
+        description: "Bridging modern LLM agents directly to your PostgreSQL, internal APIs, or file systems through standard communication protocols.",
+        metrics: ["SECURE BINDING", "API COMPLIANT"],
+        Graphic: TerminalGraphic
+      },
+      {
+        title: "Identity & Access Guardrails",
+        description: "Ensuring AI agents operate strictly within the permissions of the authenticated user to prevent catastrophic escalation of privileges.",
+        metrics: ["ROW-LEVEL RBAC", "AUDIT LOGGED"],
+        Graphic: ShieldGraphic
+      }
+    ]
   }
 ];
 
 export function Specializations() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeSpecId, setActiveSpecId] = useState<string | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % cvServices.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + cvServices.length) % cvServices.length);
+  const activeSpec = specializationData.find(s => s.id === activeSpecId);
+  const services = activeSpec ? activeSpec.services : [];
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % services.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
+
+  const openModal = (id: string) => {
+    setActiveSpecId(id);
+    setCurrentSlide(0);
+  };
 
   return (
     <section className="px-10 pb-section-gap max-w-[1440px] mx-auto" id="specializations">
       <AnimatePresence>
-        {isModalOpen && (
+        {activeSpec && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -252,7 +640,7 @@ export function Specializations() {
           >
             <div
               className="absolute inset-0 bg-background/80 backdrop-blur-sm cursor-pointer"
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => setActiveSpecId(null)}
             />
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
@@ -261,7 +649,7 @@ export function Specializations() {
               className="relative w-full max-w-4xl bg-surface-container border border-outline-variant/30 rounded-lg shadow-2xl overflow-hidden flex flex-col min-h-[500px]"
             >
               <button
-                onClick={() => setIsModalOpen(false)}
+                onClick={() => setActiveSpecId(null)}
                 className="absolute top-6 right-6 z-10 text-on-surface-variant hover:text-primary-container transition-colors bg-surface-container-low p-2 rounded-full"
               >
                 <X className="w-5 h-5" />
@@ -269,9 +657,9 @@ export function Specializations() {
 
               <div className="flex-1 flex flex-col">
                 <div className="p-8 md:p-10 border-b border-outline-variant/20 flex items-center gap-3 bg-surface-container-low">
-                  <Focus className="text-primary-container w-6 h-6" />
+                  {activeSpec.icon && <activeSpec.icon className="text-primary-container w-6 h-6" />}
                   <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
-                    SPATIAL INTEL // APPLIED SERVICES
+                    {activeSpec.label} // APPLIED SERVICES
                   </span>
                 </div>
 
@@ -286,15 +674,15 @@ export function Specializations() {
                       className="absolute inset-0 p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center"
                     >
                       <div className="w-full md:w-1/2 flex flex-col h-full justify-center">
-                        <h3 className="font-headline-lg text-3xl md:text-4xl lg:text-5xl mb-6 text-on-surface leading-tight">
-                          {cvServices[currentSlide].title}
+                        <h3 className="font-headline-lg text-2xl md:text-3xl lg:text-4xl mb-6 text-on-surface leading-tight">
+                          {services[currentSlide].title}
                         </h3>
                         <p className="font-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed md:text-lg">
-                          {cvServices[currentSlide].description}
+                          {services[currentSlide].description}
                         </p>
 
                         <div className="flex gap-6 md:gap-8 mt-auto flex-wrap">
-                          {cvServices[currentSlide].metrics.map((metric, i) => (
+                          {services[currentSlide].metrics.map((metric, i) => (
                             <div key={i}>
                               <p className="font-label-caps text-[10px] text-on-surface-variant/60 uppercase mb-2 tracking-wider">
                                 METRIC 0{i + 1}
@@ -309,7 +697,7 @@ export function Specializations() {
 
                       <div className="hidden md:flex w-full md:w-1/2 h-full items-center justify-center p-4">
                         {(() => {
-                          const Graphic = cvServices[currentSlide].Graphic;
+                          const Graphic = services[currentSlide].Graphic;
                           return <Graphic />;
                         })()}
                       </div>
@@ -319,7 +707,7 @@ export function Specializations() {
 
                 <div className="p-6 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-low">
                   <div className="flex gap-2">
-                    {cvServices.map((_, i) => (
+                    {services.map((_, i) => (
                       <div
                         key={i}
                         className={`h-1 rounded-full transition-all duration-300 ${currentSlide === i ? 'w-8 bg-primary-container' : 'w-2 bg-on-surface-variant/30'
@@ -360,7 +748,7 @@ export function Specializations() {
         {/* 1. Computer Vision */}
         <div
           className="md:col-span-4 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] rounded-lg cursor-pointer"
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => openModal("cv")}
         >
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -385,7 +773,10 @@ export function Specializations() {
         </div>
 
         {/* 2. LLMs & Agentic Networks */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] rounded-lg">
+        <div
+          className="md:col-span-8 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] rounded-lg cursor-pointer"
+          onClick={() => openModal("llm")}
+        >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex-1 max-w-xl">
               <div className="flex items-center gap-3 mb-6">
@@ -425,7 +816,10 @@ export function Specializations() {
         </div>
 
         {/* 3. Predictive Analytics */}
-        <div className="md:col-span-7 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[400px] rounded-lg">
+        <div
+          className="md:col-span-7 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[400px] rounded-lg cursor-pointer"
+          onClick={() => openModal("predictive")}
+        >
           <div>
             <div className="flex items-center gap-3 mb-6">
               <LineChart className="text-primary-container w-6 h-6" />
@@ -434,16 +828,13 @@ export function Specializations() {
               </span>
             </div>
             <h3 className="font-headline-lg text-2xl md:text-3xl mb-4 text-on-surface">
-              High-Dimensional Predictive Analytics
+              Multi-Variate Stochastic Architectures
             </h3>
             <p className="font-body-md text-on-surface-variant leading-relaxed">
-              We build custom mathematical architectures designed to find signals
-              in high-dimensional corporate noise. Anticipate demand surges,
-              quantify risk parameters, and automate strategic decision-making
-              with validated confidence intervals.
+              We engineer custom mathematical architectures and advanced algorithmic models designed to isolate signals within high-dimensional corporate noise. Anticipate demand surges, quantify risk parameters, and automate strategic decision-making with validated confidence intervals and rigorous mathematical precision.
             </p>
           </div>
-          <div className="h-20 w-full overflow-hidden opacity-30 group-hover:opacity-75 transition-opacity duration-300">
+          <div className="h-20 w-full overflow-hidden opacity-30 group-hover:opacity-75 transition-opacity duration-300,">
             <svg className="w-full h-full" viewBox="0 0 300 80" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="predictive-gradient" x1="0" y1="0" x2="0" y2="1">
@@ -494,7 +885,10 @@ export function Specializations() {
         </div>
 
         {/* 4. Edge AI */}
-        <div className="md:col-span-5 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[400px] rounded-lg">
+        <div
+          className="md:col-span-5 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[400px] rounded-lg cursor-pointer"
+          onClick={() => openModal("edge")}
+        >
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Cpu className="text-primary-container w-6 h-6" />
@@ -518,7 +912,10 @@ export function Specializations() {
         </div>
 
         {/* 5. Document Intelligence */}
-        <div className="md:col-span-6 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] rounded-lg">
+        <div
+          className="md:col-span-6 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] rounded-lg cursor-pointer"
+          onClick={() => openModal("document")}
+        >
           <div>
             <div className="flex items-center gap-3 mb-6">
               <FileText className="text-primary-container w-6 h-6" />
@@ -547,7 +944,10 @@ export function Specializations() {
         </div>
 
         {/* 6. MCP Frameworks */}
-        <div className="md:col-span-6 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] relative overflow-hidden rounded-lg">
+        <div
+          className="md:col-span-6 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[440px] relative overflow-hidden rounded-lg cursor-pointer"
+          onClick={() => openModal("mcp")}
+        >
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-6">
               <Terminal className="text-primary-container w-6 h-6" />
