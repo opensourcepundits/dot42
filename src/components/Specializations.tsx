@@ -646,7 +646,7 @@ export function Specializations() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-4xl bg-surface-container border border-outline-variant/30 rounded-lg shadow-2xl overflow-hidden flex flex-col min-h-[500px]"
+              className="relative w-full max-w-4xl bg-surface-container border border-outline-variant/30 rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[95vh] md:max-h-[90vh] min-h-[500px]"
             >
               <button
                 onClick={() => setActiveSpecId(null)}
@@ -655,15 +655,15 @@ export function Specializations() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex-1 flex flex-col">
-                <div className="p-8 md:p-10 border-b border-outline-variant/20 flex items-center gap-3 bg-surface-container-low">
+              <div className="flex-1 flex flex-col bg-surface-container min-h-0">
+                <div className="p-6 md:p-10 border-b border-outline-variant/20 flex items-center gap-3 bg-surface-container-low shrink-0">
                   {activeSpec.icon && <activeSpec.icon className="text-primary-container w-6 h-6" />}
                   <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
                     {activeSpec.label} // APPLIED SERVICES
                   </span>
                 </div>
 
-                <div className="flex-1 relative overflow-hidden flex items-center min-h-[300px] md:min-h-[400px]">
+                <div className="flex-1 relative overflow-hidden flex min-h-[300px] md:min-h-[400px]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentSlide}
@@ -671,17 +671,17 @@ export function Specializations() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute inset-0 p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center"
+                      className="absolute inset-0 p-6 md:p-10 overflow-y-auto flex flex-col md:flex-row gap-8 items-start md:items-center"
                     >
-                      <div className="w-full md:w-1/2 flex flex-col h-full justify-center">
-                        <h3 className="font-headline-lg text-2xl md:text-3xl lg:text-4xl mb-6 text-on-surface leading-tight">
+                      <div className="w-full md:w-1/2 flex flex-col md:h-full justify-center shrink-0 md:shrink">
+                        <h3 className="font-headline-lg text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6 text-on-surface leading-tight">
                           {services[currentSlide].title}
                         </h3>
-                        <p className="font-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed md:text-lg">
+                        <p className="font-body-lg text-on-surface-variant max-w-2xl mb-8 md:mb-10 leading-relaxed md:text-lg">
                           {services[currentSlide].description}
                         </p>
 
-                        <div className="flex gap-6 md:gap-8 mt-auto flex-wrap">
+                        <div className="flex gap-6 md:gap-8 mt-auto flex-wrap mb-4 md:mb-0">
                           {services[currentSlide].metrics.map((metric, i) => (
                             <div key={i}>
                               <p className="font-label-caps text-[10px] text-on-surface-variant/60 uppercase mb-2 tracking-wider">
@@ -695,7 +695,7 @@ export function Specializations() {
                         </div>
                       </div>
 
-                      <div className="hidden md:flex w-full md:w-1/2 h-full items-center justify-center p-4">
+                      <div className="flex w-full md:w-1/2 min-h-[250px] md:h-full items-center justify-center p-0 md:p-4 shrink-0 pb-8 md:pb-0">
                         {(() => {
                           const Graphic = services[currentSlide].Graphic;
                           return <Graphic />;
@@ -705,7 +705,7 @@ export function Specializations() {
                   </AnimatePresence>
                 </div>
 
-                <div className="p-6 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-low">
+                <div className="p-6 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-low shrink-0">
                   <div className="flex gap-2">
                     {services.map((_, i) => (
                       <div
