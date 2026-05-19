@@ -9,9 +9,9 @@ import {
   CircuitBoard,
 } from "lucide-react";
 
-export function Capabilities() {
+export function Specializations() {
   return (
-    <section className="px-10 pb-section-gap max-w-[1440px] mx-auto" id="capabilities">
+    <section className="px-10 pb-section-gap max-w-[1440px] mx-auto" id="specializations">
       <header className="mb-20">
         <div className="font-label-caps text-label-caps tracking-widest text-primary-container mb-4 uppercase">
           01 // EXPERTISE
@@ -113,7 +113,7 @@ export function Capabilities() {
         <div className="md:col-span-5 bg-surface-container border border-outline-variant/30 p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between min-h-[400px] rounded-lg">
           <div>
             <div className="flex items-center gap-3 mb-6">
-               <Cpu className="text-primary-container w-6 h-6" />
+              <Cpu className="text-primary-container w-6 h-6" />
               <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
                 HARDWARE_OPTIMIZED
               </span>

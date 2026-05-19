@@ -17,9 +17,9 @@ export function Footer() {
       <div className="flex flex-wrap justify-center gap-8">
         <a
           className="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors uppercase"
-          href="#capabilities"
+          href="#specializations"
         >
-          Capabilities
+          Specializations
         </a>
         <a
           className="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors uppercase"

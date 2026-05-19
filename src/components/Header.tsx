@@ -16,9 +16,9 @@ export function Header() {
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
-          href="#capabilities"
+          href="#specializations"
         >
-          Capabilities
+          Specializations
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
