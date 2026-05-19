@@ -16,11 +16,21 @@ export function Hero() {
             intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
-            <button className="bg-primary-container text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-none transition-transform hover:brightness-110 active:scale-95 uppercase">
-              START INFERENCE
+            <button 
+              onClick={() => {
+                document.getElementById('consult')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="bg-primary-container text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-none transition-transform hover:brightness-110 active:scale-95 uppercase"
+            >
+              GET IN TOUCH
             </button>
-            <button className="border border-outline-variant/30 text-on-surface font-label-caps text-label-caps px-8 py-4 rounded-none transition-all hover:bg-on-surface/5 active:scale-95 uppercase">
-              VIEW FRAMEWORKS
+            <button 
+              onClick={() => {
+                document.getElementById('specializations')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="border border-outline-variant/30 text-on-surface font-label-caps text-label-caps px-8 py-4 rounded-none transition-all hover:bg-on-surface/5 active:scale-95 uppercase"
+            >
+              WHAT WE DO
             </button>
           </div>
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-outline-variant/20">
