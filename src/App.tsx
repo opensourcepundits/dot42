@@ -2,7 +2,7 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Specializations } from "./components/Specializations";
 import { Process } from "./components/Process";
-import { Gallery } from "./components/Gallery";
+import { Deliverables } from "./components/Deliverables";
 import { CustomSolutions } from "./components/CustomSolutions";
 import { Consult } from "./components/Consult";
 import { Footer } from "./components/Footer";
@@ -15,7 +15,7 @@ export default function App() {
         <Hero />
         <Specializations />
         <Process />
-        <Gallery />
+        <Deliverables />
         <CustomSolutions />
         <Consult />
       </main>

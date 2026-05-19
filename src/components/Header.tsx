@@ -28,9 +28,9 @@ export function Header() {
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
-          href="#gallery"
+          href="#deliverables"
         >
-          Gallery
+          Deliverables
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
@@ -44,7 +44,7 @@ export function Header() {
           className="bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-3 scale-95 active:scale-90 transition-transform hover:brightness-110 uppercase"
           href="#consult"
         >
-          START_INFERENCE
+          GET_IN_TOUCH
         </a>
       </div>
     </header>
