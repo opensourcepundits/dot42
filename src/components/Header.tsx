@@ -10,12 +10,6 @@ export function Header() {
       <nav className="hidden md:flex gap-8 items-center">
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
-          href="#hero"
-        >
-          Hero
-        </a>
-        <a
-          className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
           href="#specializations"
         >
           Specializations
@@ -31,12 +25,6 @@ export function Header() {
           href="#deliverables"
         >
           Deliverables
-        </a>
-        <a
-          className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
-          href="#consult"
-        >
-          Consult
         </a>
       </nav>
       <div className="flex items-center gap-6">

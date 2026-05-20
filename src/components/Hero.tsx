@@ -1,4 +1,24 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+
+const EXPERTISE_OPTIONS = [
+  "Machine Learning Architecture.",
+  "Exhaustive Data Science Solutions.",
+  "Predictive Analytics Pipelines.",
+  "Cognitive File Infrastructure.",
+  "Autonomous Agentic Networks."
+];
+
 export function Hero() {
+  const [expertiseIndex, setExpertiseIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setExpertiseIndex((prev) => (prev + 1) % EXPERTISE_OPTIONS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
       className="min-h-screen pt-[120px] px-10 flex flex-col justify-center max-w-[1440px] mx-auto"
@@ -7,8 +27,24 @@ export function Hero() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
         <div className="lg:col-span-7 space-y-6 md:space-y-8">
           <h1 className="font-display-lg text-[48px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-tighter">
-            Custom Machine Learning Architecture.{" "}
-            <span className="text-primary-container">Engineered for Scale.</span>
+            Custom{" "}
+            <span className="inline-grid w-full">
+              <AnimatePresence mode="popLayout">
+                <motion.span
+                  key={expertiseIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="col-start-1 row-start-1"
+                >
+                  {EXPERTISE_OPTIONS[expertiseIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+            <span className="block mt-2">
+              <span className="text-primary-container">Engineered for Scale.</span>
+            </span>
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
             Architecting bespoke neural networks and enterprise data pipelines.
