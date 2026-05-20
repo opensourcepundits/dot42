@@ -69,32 +69,6 @@ export function Hero() {
               WHAT WE DO
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-outline-variant/20">
-            <div>
-              <p className="font-data-metric text-data-metric text-on-surface">
-                99.98%
-              </p>
-              <p className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-2">
-                Inference Reliability
-              </p>
-            </div>
-            <div>
-              <p className="font-data-metric text-data-metric text-on-surface">
-                &lt;4ms
-              </p>
-              <p className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-2">
-                Latent Throughput
-              </p>
-            </div>
-            <div>
-              <p className="font-data-metric text-data-metric text-on-surface">
-                4.0 PFLOPS
-              </p>
-              <p className="font-label-caps text-label-caps text-on-surface-variant uppercase mt-2">
-                Compute Capacity
-              </p>
-            </div>
-          </div>
         </div>
         <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-center mt-12 lg:mt-0">
           <div className="relative w-full max-w-[400px] lg:max-w-md xl:max-w-[480px] aspect-square bg-surface-container-low rounded-lg overflow-hidden bento-border">
