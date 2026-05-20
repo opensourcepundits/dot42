@@ -1,4 +1,103 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ChevronDown } from "lucide-react";
+
+const PHASES = [
+  {
+    id: "01",
+    title: "Initiation & Legal Safeguards",
+    steps: [
+      {
+        title: "Initial Discovery Call",
+        content: "Align on the core business friction, high-level technical constraints, and define whether the target problem requires an agentic, predictive, or edge hardware architecture.",
+      },
+      {
+        title: "NDA Execution",
+        content: "Draft and sign a mutual Non-Disclosure Agreement (NDA) to guarantee strict confidentiality and ensure absolute zero data leakage protocols before any proprietary schemas or corporate data files are shared.",
+      },
+      {
+        title: "Master Services Agreement (MSA) & Statement of Work (SOW)",
+        content: "Execute a foundational MSA governing the consulting relationship, accompanied by a precise SOW that bounds the PoC scope, timelines, engineering fees, and explicit intellectual property (IP) terms.",
+      },
+    ],
+  },
+  {
+    id: "02",
+    title: "Technical Requirement Gathering & Data Audit",
+    steps: [
+      {
+        title: "Deep-Dive Discovery Workshops",
+        content: "Conduct granular interviews with internal engineering teams, domain experts, and stakeholders to map out existing system topologies, data residency parameters, and operational bottlenecks.",
+      },
+      {
+        title: "Data Ingestion Audit & Schema Mapping",
+        content: "Securely ingest a representative subset of historical data into a VPC-isolated or self-hosted staging environment, validating data quality, feature dimensions, and structural anomalies.",
+      },
+      {
+        title: "Success Metric Definition",
+        content: "Programmatically define what constitutes a successful PoC by locking down verifiable Key Performance Indicators (KPIs), such as target prediction latency, statistical confidence intervals, or autonomous agent task-completion rates.",
+      },
+    ],
+  },
+  {
+    id: "03",
+    title: "Architectural Design & Solution Framing",
+    steps: [
+      {
+        title: "System Topology Blueprinting",
+        content: "Design the end-to-end technical architecture, specifying the exact components needed—whether it is a localized compute pipeline running optimized vision models, or an interoperable multi-agent cluster utilizing the Model Context Protocol (MCP) framework.",
+      },
+      {
+        title: "Deliverable Specification",
+        content: "Enumerate the precise software artifacts to be built, moving past basic web applications to specify low-level deliverables like Ahead-of-Time (AOT) compiled binaries, custom OS images with strict swap/memory bounds, or containerized microservices.",
+      },
+      {
+        title: "Architecture Review Milestone",
+        content: "Present the comprehensive system design and security posture to the client’s technical leadership for formal sign-off before initializing the development cycle.",
+      },
+    ],
+  },
+  {
+    id: "04",
+    title: "Agile Development & Algorithmic Modeling",
+    steps: [
+      {
+        title: "Infrastructure Provisioning",
+        content: "Initialize secure sandbox environments using Infrastructure as Code (IaC) blueprints, ensuring strict Role-Based Access Control (RBAC) and total data isolation boundaries.",
+      },
+      {
+        title: "Mathematical Modeling & Core Engineering",
+        content: "Build custom statistical architectures, write parallelized tensor transformations using high-performance numerical computing frameworks, or orchestrate state-machine topologies for autonomous agent interaction.",
+      },
+      {
+        title: "Rigorous Validation & Backtesting",
+        content: "Run the models or agent workflows through strict testing loops—evaluating performance against extreme volatility scenarios, verifying data schemas, and bounding predictive outputs within validated confidence intervals.",
+      },
+    ],
+  },
+  {
+    id: "05",
+    title: "Delivery, Evaluation & Strategic Handover",
+    steps: [
+      {
+        title: "Functional PoC Demonstration",
+        content: "Present the working PoC artifact (e.g., an operational dashboard, an integrated MCP server tool catalog, or a live edge inference server pipeline) executing real-world multi-step enterprise workflows.",
+      },
+      {
+        title: "Technical Performance Sign-Off",
+        content: "Deliver the empirical validation logs, model cards, data lineage audits, and system vulnerability reports to prove the architecture satisfies all locked-down success metrics.",
+      },
+      {
+        title: "Handover Blueprints & Next-Steps Roadmapping",
+        content: "Deliver clean, minimalist developer SDK documentation, operational runbooks, and an enterprise scaling roadmap detailing the path from a localized PoC to a production-grade, distributed system rollout.",
+      },
+    ],
+  },
+];
+
 export function Process() {
+  const [expandedId, setExpandedId] = useState<string | null>(PHASES[0].id);
+
   return (
     <section className="px-10 pb-section-gap max-w-7xl mx-auto" id="process">
       <header className="mb-20">
@@ -6,253 +105,71 @@ export function Process() {
           02 // PIPELINE
         </div>
         <h2 className="font-headline-lg text-headline-lg max-w-3xl mb-4 text-on-surface">
-          From Raw Data to Production Model
+          Our Pipeline
         </h2>
         <div className="w-24 h-1 bg-primary-container"></div>
       </header>
+      
       <div className="pipeline-container flex flex-col gap-4">
-        {/* PHASE 01 */}
-        <div className="pipeline-card bento-card rounded-lg p-8 transition-all duration-300 border-outline-variant/30 group">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
-            <div
-              className="font-display-md text-primary-container leading-none"
-              style={{ fontSize: "48px" }}
-            >
-              01
-            </div>
-            <div className="flex-1 space-y-4">
-              <h3 className="font-headline-lg text-2xl md:text-3xl text-on-surface">
-                Alignment & Legal Safeguards
-              </h3>
-              <p className="font-body-lg text-on-surface-variant">
-                Mutual filtering, corporate alignment, and immediate legal
-                protection.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/20">
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 1
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Inbound triaging & technical stack profiling.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 2
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Strategic alignment call as well as evaluating business
-                    bottlenecks.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 3
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Execution of a streamlined Mutual NDA (MNDA)—no data or
-                    architecture is discussed prior to this signature.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {PHASES.map((phase) => {
+          const isExpanded = expandedId === phase.id;
 
-        {/* PHASE 02 */}
-        <div className="pipeline-card bento-card rounded-lg p-8 transition-all duration-300 border-outline-variant/30 group">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
+          return (
             <div
-              className="font-display-md text-primary-container leading-none"
-              style={{ fontSize: "48px" }}
+              key={phase.id}
+              onClick={() => setExpandedId(isExpanded ? null : phase.id)}
+              className={`pipeline-card bento-card rounded-lg p-6 md:p-8 transition-all duration-300 border-outline-variant/30 cursor-pointer group ${
+                isExpanded ? "bg-surface-container-low border-primary-container/30" : "hover:border-primary-container/20"
+              }`}
             >
-              02
-            </div>
-            <div className="flex-1 space-y-4">
-              <h3 className="font-headline-lg text-2xl md:text-3xl text-on-surface">
-                Data Auditing & Feasibility Verification
-              </h3>
-              <p className="font-body-lg text-on-surface-variant">
-                Uncovering technical realities and mathematically validating your
-                dataset before any commercial commitments.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/20">
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 1
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Deep-dive requirements gathering workshops detailing latency
-                    targets and environment constraints (Cloud/Edge).
-                  </p>
+              <div className="flex items-center justify-between gap-6">
+                <div className="flex items-center gap-6">
+                  <div
+                    className="font-display-md text-primary-container leading-none"
+                    style={{ fontSize: "40px" }}
+                  >
+                    {phase.id}
+                  </div>
+                  <h3 className="font-headline-lg text-xl md:text-2xl text-on-surface">
+                    {phase.title}
+                  </h3>
                 </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 2
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Secure, encrypted handover of a sanitized, non-sensitive
-                    sample dataset via isolated cloud storage buckets.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 3
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Empirical feasibility audit to mathematically prove model
-                    viability against target business ROI.
-                  </p>
+                <div className="text-on-surface-variant flex-shrink-0">
+                  <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                    <ChevronDown className="w-6 h-6" />
+                  </motion.div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* PHASE 03 */}
-        <div className="pipeline-card bento-card rounded-lg p-8 transition-all duration-300 border-outline-variant/30 group">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
-            <div
-              className="font-display-md text-primary-container leading-none"
-              style={{ fontSize: "48px" }}
-            >
-              03
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pt-8">
+                      <div className="flex flex-col gap-6 pl-0 md:pl-20 border-t border-outline-variant/20 pt-6">
+                        {phase.steps.map((step, idx) => (
+                          <div key={idx} className="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-1 before:bg-primary-container/20 hover:before:bg-primary-container/60 transition-colors">
+                            <h4 className="font-label-caps text-label-caps text-primary-container uppercase mb-2">
+                              {step.title}
+                            </h4>
+                            <p className="font-body-md text-on-surface-variant/80">
+                              {step.content}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <div className="flex-1 space-y-4">
-              <h3 className="font-headline-lg text-2xl md:text-3xl text-on-surface">
-                Transparent SOW & Milestone Mapping
-              </h3>
-              <p className="font-body-lg text-on-surface-variant">
-                Defining fixed-scope deliverables, predictable resource
-                allocation, and IP ownership.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-outline-variant/20">
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 1
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Generation of a high-fidelity digital proposal with tiered,
-                    milestone-based pricing architectures.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 2
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Mutual execution of the Master Services Agreement (MSA) and
-                    granular Statement of Work (SOW).
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* PHASE 04 */}
-        <div className="pipeline-card bento-card rounded-lg p-8 transition-all duration-300 border-outline-variant/30 group">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
-            <div
-              className="font-display-md text-primary-container leading-none"
-              style={{ fontSize: "48px" }}
-            >
-              04
-            </div>
-            <div className="flex-1 space-y-4">
-              <h3 className="font-headline-lg text-2xl md:text-3xl text-on-surface">
-                Production Training & Core Engineering
-              </h3>
-              <p className="font-body-lg text-on-surface-variant">
-                Transforming raw enterprise data assets into high-performance,
-                containerized ML microservices (as per requirements and agreement).
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/20">
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 1
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Full production-grade data ingestion equipped with automated
-                    data anomaly cleaning filters.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 2
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Baseline prototyping linked to a live experiment tracking
-                    dashboard (e.g., Weights & Biases) for 100% client
-                    visibility.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 3
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Model hardening, distributed training scaling, and
-                    integration with custom UI observability dashboards or API
-                    endpoints.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* PHASE 05 */}
-        <div className="pipeline-card bento-card rounded-lg p-8 transition-all duration-300 border-outline-variant/30 group">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
-            <div
-              className="font-display-md text-primary-container leading-none"
-              style={{ fontSize: "48px" }}
-            >
-              05
-            </div>
-            <div className="flex-1 space-y-4">
-              <h3 className="font-headline-lg text-2xl md:text-3xl text-on-surface">
-                System Integration & Operational Autonomy
-              </h3>
-              <p className="font-body-lg text-on-surface-variant">
-                Rigorous edge-case stress testing, direct infrastructure
-                deployment, and clean runbook handover.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/20">
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 1
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    User Acceptance Testing (UAT) against unseen real-world
-                    data and interface layout validation.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 2
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Isolated production deployment via Docker directly into your
-                    enterprise cloud or hardware stack.
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="font-label-caps text-[10px] text-primary-container/70 uppercase">
-                    STEP 3
-                  </p>
-                  <p className="font-body-md text-sm text-on-surface-variant/60">
-                    Delivery of self-documenting interactive API playbooks and
-                    automated MLOps retraining runbooks for total internal
-                    autonomy.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </section>
   );
