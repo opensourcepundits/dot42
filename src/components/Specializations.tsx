@@ -757,6 +757,12 @@ const specializationData = [
         Graphic: MedicalGraphic
       },
       {
+        title: "Custom OCR (Optical Character Recognition)",
+        description: "High-accuracy custom OCR architectures tailored specifically for your digitization and digitalisation tasks.",
+        metrics: ["DOCUMENT PARSING", "DATA EXTRACTION"],
+        Graphic: DocScanGraphic
+      },
+      {
         title: "Real-Time Gesture Recognition",
         description: "Low-latency spatial mapping and skeletal tracking for advanced human-computer interaction and intent prediction.",
         metrics: ["60fps+ TRACKING", "SUB-MM ACCURACY"],
@@ -773,12 +779,6 @@ const specializationData = [
         description: "Industrial-grade visual inspection pipelines capable of identifying microscopic manufacturing flaws at production line speeds.",
         metrics: ["ZERO-DEFECT GOAL", "HIGH THROUGHPUT"],
         Graphic: DefectGraphic
-      },
-      {
-        title: "Custom OCR (Optical Character Recognition)",
-        description: "High-accuracy custom OCR architectures tailored specifically for your digitization and digitalisation tasks.",
-        metrics: ["DOCUMENT PARSING", "DATA EXTRACTION"],
-        Graphic: DocScanGraphic
       }
     ]
   },
@@ -1011,6 +1011,12 @@ const specializationData = [
     icon: CircuitBoard,
     colSpan: "md:col-span-8 md:order-1 min-h-[350px]",
     services: [
+      {
+        title: "LLM Log & Architecture Auditing",
+        description: "Comprehensive forensic analysis of your current API usage logs to identify redundant, costly LLM calls that can be replaced with efficient custom, deterministic models.",
+        metrics: ["COST REDUCTION", "FORENSIC ANALYSIS"],
+        Graphic: ChartGraphic
+      },
       {
         title: "Novel Algorithm Development",
         description: "Designing from-scratch machine learning models tailored to unique, non-standard datasets.",
