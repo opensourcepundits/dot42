@@ -792,6 +792,12 @@ const specializationData = [
     colSpan: "md:col-span-4 md:order-3 min-h-[350px]",
     services: [
       {
+        title: "Fine-Tuning LLMs",
+        description: "Custom fine-tuning of foundation models on your proprietary datasets to achieve unparalleled domain-specific reasoning and accuracy.",
+        metrics: ["DOMAIN ADAPTATION", "TASK SPECIALIZATION"],
+        Graphic: AtomGraphic
+      },
+      {
         title: "Private Enterprise LLMs",
         description: "Locally hosted or securely siloed Foundation Models fine-tuned on your proprietary intelligence with strict access controls.",
         metrics: ["100% DATA PRIVACY", "ON-PREM DEPLOYMENT"],

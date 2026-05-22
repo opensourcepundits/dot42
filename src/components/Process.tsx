@@ -9,15 +9,15 @@ const PHASES = [
     steps: [
       {
         title: "Initial Discovery Call",
-        content: "Align on the core business friction, high-level technical constraints, and define whether the target problem requires an agentic, predictive, or edge hardware architecture.",
+        content: "Identify the core friction and high-level technical constraints. Determine the target architecture needed.",
       },
       {
         title: "NDA Execution",
-        content: "Draft and sign a mutual Non-Disclosure Agreement (NDA) to guarantee strict confidentiality and ensure absolute zero data leakage protocols before any proprietary schemas or corporate data files are shared.",
+        content: "Execute a mutual NDA to guarantee strict confidentiality. Ensure absolute zero data leakage before any proprietary data is shared.",
       },
       {
         title: "Master Services Agreement (MSA) & Statement of Work (SOW)",
-        content: "Execute a foundational MSA governing the consulting relationship, accompanied by a precise SOW that bounds the PoC scope, timelines, engineering fees, and explicit intellectual property (IP) terms.",
+        content: "Execute a foundational MSA and a concise SOW defining the project scope, engineering fees, and IP terms.",
       },
     ],
   },
@@ -27,51 +27,51 @@ const PHASES = [
     steps: [
       {
         title: "Deep-Dive Discovery Workshops",
-        content: "Conduct granular interviews with internal engineering teams, domain experts, and stakeholders to map out existing system topologies, data residency parameters, and operational bottlenecks.",
+        content: "Conduct granular interviews with your engineering teams to map out existing system topologies. Establish data residency boundaries and operational bottlenecks.",
       },
       {
         title: "Data Ingestion Audit & Schema Mapping",
-        content: "Securely ingest a representative subset of historical data into a VPC-isolated or self-hosted staging environment, validating data quality, feature dimensions, and structural anomalies.",
+        content: "Securely ingest a subset of data into a staging environment. Validate quality, identify anomalies, and establish schemas.",
       },
       {
         title: "Success Metric Definition",
-        content: "Programmatically define what constitutes a successful PoC by locking down verifiable Key Performance Indicators (KPIs), such as target prediction latency, statistical confidence intervals, or autonomous agent task-completion rates.",
+        content: "Define specific Key Performance Indicators (KPIs) to quantify PoC success. Establish clear targets for latency, accuracy, or completion rates.",
       },
     ],
   },
   {
     id: "03",
-    title: "Architectural Design & Solution Framing",
+    title: "Architect, Blueprint & Frame Solutions",
     steps: [
       {
         title: "System Topology Blueprinting",
-        content: "Design the end-to-end technical architecture, specifying the exact components needed—whether it is a localized compute pipeline running optimized vision models, or an interoperable multi-agent cluster utilizing the Model Context Protocol (MCP) framework.",
+        content: "Design the technical architecture and map exactly how autonomous components operate. Establish boundaries between agents and data sources.",
       },
       {
         title: "Deliverable Specification",
-        content: "Enumerate the precise software artifacts to be built, moving past basic web applications to specify low-level deliverables like Ahead-of-Time (AOT) compiled binaries, custom OS images with strict swap/memory bounds, or containerized microservices.",
+        content: "Enumerate the precise software artifacts and agent network structures to be built. Highlight low-level deliverables such as binaries or microservices.",
       },
       {
         title: "Architecture Review Milestone",
-        content: "Present the comprehensive system design and security posture to the client’s technical leadership for formal sign-off before initializing the development cycle.",
+        content: "Obtain formal sign-off from technical leadership on the system design and security posture. Ensure all technical requirements have been fully addressed.",
       },
     ],
   },
   {
     id: "04",
-    title: "Agile Development & Algorithmic Modeling",
+    title: "Provision, Model & Develop Algorithms",
     steps: [
       {
         title: "Infrastructure Provisioning",
-        content: "Initialize secure sandbox environments using Infrastructure as Code (IaC) blueprints, ensuring strict Role-Based Access Control (RBAC) and total data isolation boundaries.",
+        content: "Deploy secure sandbox environments using Infrastructure as Code (IaC). Establish strict Role-Based Access Control and data isolation.",
       },
       {
         title: "Mathematical Modeling & Core Engineering",
-        content: "Build custom statistical architectures, write parallelized tensor transformations using high-performance numerical computing frameworks, or orchestrate state-machine topologies for autonomous agent interaction.",
+        content: "Develop specialized algorithms, agents, and state-machine topologies tailored to your use case. Build custom numerical transformations where required.",
       },
       {
         title: "Rigorous Validation & Backtesting",
-        content: "Run the models or agent workflows through strict testing loops—evaluating performance against extreme volatility scenarios, verifying data schemas, and bounding predictive outputs within validated confidence intervals.",
+        content: "Subject the system to strict testing loops against extreme volatility scenarios. Verify schemas and predictive outputs within confidence intervals.",
       },
     ],
   },
@@ -81,15 +81,15 @@ const PHASES = [
     steps: [
       {
         title: "Functional PoC Demonstration",
-        content: "Present the working PoC artifact (e.g., an operational dashboard, an integrated MCP server tool catalog, or a live edge inference server pipeline) executing real-world multi-step enterprise workflows.",
+        content: "Present the functioning PoC artifact executing real-world enterprise workflows. Prove end-to-end integration across agents or pipelines.",
       },
       {
         title: "Technical Performance Sign-Off",
-        content: "Deliver the empirical validation logs, model cards, data lineage audits, and system vulnerability reports to prove the architecture satisfies all locked-down success metrics.",
+        content: "Deliver empirical logs, lineage audits, and vulnerability reports. Verify that the architecture meets all locked-down success metrics.",
       },
       {
         title: "Handover Blueprints & Next-Steps Roadmapping",
-        content: "Deliver clean, minimalist developer SDK documentation, operational runbooks, and an enterprise scaling roadmap detailing the path from a localized PoC to a production-grade, distributed system rollout.",
+        content: "Provide minimalist software SDK documentation and operational runbooks. Detail a scaling roadmap from PoC to a distributed production system.",
       },
     ],
   },
