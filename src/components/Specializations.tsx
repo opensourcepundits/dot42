@@ -773,24 +773,24 @@ const specializationData = [
         description: "Industrial-grade visual inspection pipelines capable of identifying microscopic manufacturing flaws at production line speeds.",
         metrics: ["ZERO-DEFECT GOAL", "HIGH THROUGHPUT"],
         Graphic: DefectGraphic
+      },
+      {
+        title: "Custom OCR (Optical Character Recognition)",
+        description: "High-accuracy custom OCR architectures tailored specifically for your digitization and digitalisation tasks.",
+        metrics: ["DOCUMENT PARSING", "DATA EXTRACTION"],
+        Graphic: DocScanGraphic
       }
     ]
   },
   {
     id: "llm",
     index: "03",
-    label: "COGNITIVE SYSTEMS",
-    title: "Large Language Models & Agentic Networks",
-    description: "Move beyond basic chatbots. We architect secure, private LLM pipelines and autonomous multi-agent networks that execute complex, multi-step enterprise workflows with strict deterministic accuracy and zero data leakage.",
-    icon: Network,
+    label: "FOUNDATION MODELS",
+    title: "Fine-Tuning LLMs",
+    description: "Move beyond standard models. We architect secure, private LLM pipelines fine-tuned on your proprietary intelligence with strict access controls and zero data leakage.",
+    icon: Brain,
     colSpan: "md:col-span-4 md:order-3 min-h-[350px]",
     services: [
-      {
-        title: "Autonomous Agentic Workflows",
-        description: "Multi-agent systems that break down complex enterprise goals into executable, verifiable steps with distinct tool-use constraints.",
-        metrics: ["ZERO HALLUCINATION", "CHAIN-OF-THOUGHT"],
-        Graphic: ComposedModelGraphic
-      },
       {
         title: "Private Enterprise LLMs",
         description: "Locally hosted or securely siloed Foundation Models fine-tuned on your proprietary intelligence with strict access controls.",
@@ -806,13 +806,30 @@ const specializationData = [
     ]
   },
   {
-    id: "finance",
+    id: "agents",
     index: "04",
+    label: "AUTONOMOUS SYSTEMS",
+    title: "Agents",
+    description: "Deploy autonomous multi-agent networks that execute complex, multi-step enterprise workflows with strict deterministic accuracy and robust tool-use constraints.",
+    icon: Network,
+    colSpan: "md:col-span-4 md:order-4 min-h-[350px]",
+    services: [
+      {
+        title: "Autonomous Agentic Workflows",
+        description: "Multi-agent systems that break down complex enterprise goals into executable, verifiable steps with distinct tool-use constraints.",
+        metrics: ["ZERO HALLUCINATION", "CHAIN-OF-THOUGHT"],
+        Graphic: ComposedModelGraphic
+      }
+    ]
+  },
+  {
+    id: "finance",
+    index: "05",
     label: "FINANCIAL INTELLIGENCE",
     title: "Financial & Risk Analytics",
     description: "We leverage advanced predictive models to safeguard your enterprise capital. Anticipate market shifts, detect fraudulent activities in real-time, and manage portfolio risks with validated confidence.",
     icon: LineChart,
-    colSpan: "md:col-span-4 md:order-4 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-5 min-h-[350px]",
     services: [
       {
         title: "Real-Time Fraud & AML Detection",
@@ -836,12 +853,12 @@ const specializationData = [
   },
   {
     id: "operations",
-    index: "05",
+    index: "06",
     label: "OPERATIONS",
     title: "Supply Chain & Operational Analytics",
     description: "Optimize your global networks and manufacturing processes. We apply sophisticated models to balance energy loads, predict equipment failures, and minimize logistical latency.",
     icon: Network,
-    colSpan: "md:col-span-4 md:order-5 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-6 min-h-[350px]",
     services: [
       {
         title: "Global Supply Chain Optimization",
@@ -871,12 +888,12 @@ const specializationData = [
   },
   {
     id: "customer",
-    index: "06",
+    index: "07",
     label: "CUSTOMER INSIGHTS",
     title: "Customer & Behavioral Analytics",
     description: "Transform behavioral data into actionable foresight. Accurately predict customer actions, refine your target audience, and proactively intercept churn.",
     icon: Focus,
-    colSpan: "md:col-span-4 md:order-6 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-7 min-h-[350px]",
     services: [
       {
         title: "Customer Churn Prevention",
@@ -900,12 +917,12 @@ const specializationData = [
   },
   {
     id: "edge",
-    index: "08",
+    index: "09",
     label: "HARDWARE_OPTIMIZED",
     title: "Edge AI & Embedded Machine Learning",
     description: "We optimize and compile custom neural networks for localized hardware environments (NVIDIA Jetson, embedded systems, mobile applications). Achieve sub-millisecond local inference speeds while eliminating cloud compute dependencies entirely.",
     icon: Cpu,
-    colSpan: "md:col-span-4 md:order-8 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-9 min-h-[350px]",
     services: [
       {
         title: "Local Inference Optimization",
@@ -923,12 +940,12 @@ const specializationData = [
   },
   {
     id: "document",
-    index: "09",
+    index: "10",
     label: "SEMANTIC INFRASTRUCTURE",
     title: "Document Intelligence & Cognitive File Infrastructure",
     description: "We replace rigid, traditional folder hierarchies with semantic document intelligence pipelines. By parsing and vectorizing unstructured multi-format data at scale, we build custom knowledge infrastructure.",
     icon: FileText,
-    colSpan: "md:col-span-4 md:order-9 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-10 min-h-[350px]",
     services: [
       {
         title: "Multimodal Layout Extraction & Spatial Decomposition",
@@ -958,12 +975,12 @@ const specializationData = [
   },
   {
     id: "mcp",
-    index: "10",
+    index: "11",
     label: "OPEN_STANDARDS",
     title: "Model Context Protocol (MCP) Frameworks",
     description: "We design and deploy open-standard MCP servers to anchor your agentic workflows. Standardizing the interface between foundational LLMs and your internal data layers while maintaining strict row-level access controls.",
     icon: Terminal,
-    colSpan: "md:col-span-4 md:order-10 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-11 min-h-[350px]",
     services: [
       {
         title: "Custom MCP Server Deployment",
@@ -983,10 +1000,10 @@ const specializationData = [
     id: "bespoke",
     index: "01",
     label: "BESPOKE SOLUTIONS",
-    title: "LLM bill slashing",
-    description: "We partner with you to engineer bespoke data science and AI solutions for highly specialized enterprise challenges. From niche predictive modeling to entirely novel AI applications, we build tools that don't exist off-the-shelf. We audit your company's current services, identifying where unnecessary calls to APIs like OpenAI are being made, and we will create custom solutions that slashes your monthly bill and enables you to keep your data private.",
+    title: "Stop Burning Capital on Bloated LLM APIs",
+    description: "We perform a robust forensic audit of your enterprise LLM logs to identify where expensive API calls are wasting funds on tasks that can be solved directly with targeted algorithms. We deliver a comprehensive cost-reduction report, then architect and deploy custom deterministic models that replace unnecessary API dependencies—drastically slashing your monthly AI bill while keeping your proprietary data strictly private.",
     icon: CircuitBoard,
-    colSpan: "md:col-span-12 md:order-1 min-h-[350px]",
+    colSpan: "md:col-span-8 md:order-1 min-h-[350px]",
     services: [
       {
         title: "Novel Algorithm Development",
@@ -1004,12 +1021,12 @@ const specializationData = [
   },
   {
     id: "growth",
-    index: "07",
+    index: "08",
     label: "GROWTH AGENTS",
     title: "Customer Intelligence & Growth Marketing",
     description: "Orchestrate data-driven growth pipelines using predictive customer intelligence. We deploy autonomous marketing agents to personalize engagement at scale, optimizing acquisition and maximizing lifetime value.",
     icon: Target,
-    colSpan: "md:col-span-4 md:order-7 min-h-[350px]",
+    colSpan: "md:col-span-4 md:order-8 min-h-[350px]",
     services: [
       {
         title: "Autonomous Campaign Orchestration",
@@ -1181,19 +1198,9 @@ export function Specializations() {
               </p>
             </div>
             
-            {spec.tags ? (
-              <div className="mt-8 border-t border-outline-variant/20 pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
-                {spec.tags.map((tag, idx) => (
-                  <div key={idx} className="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">
-                    {tag}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="mt-8 flex justify-end relative z-10">
-                 <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105" />
-              </div>
-            )}
+            <div className="mt-8 flex justify-end relative z-10">
+               <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105" />
+            </div>
           </div>
         ))}
       </div>

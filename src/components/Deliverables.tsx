@@ -2,18 +2,18 @@ import { Box, Code2, Server, LayoutDashboard, Database, Globe, Smartphone, Binar
 
 const deliverables = [
   {
-    title: "Docker Container",
-    description: "Fully containerized intelligence modules, primed for horizontal scaling on standard Kubernetes orchestration.",
+    title: "Agents",
+    description: "Autonomous, specialized AI agents crafted to execute complex, multi-step enterprise workflows with deterministic accuracy.",
     icon: Box,
   },
   {
-    title: "API Endpoint",
-    description: "Low-latency REST and gRPC endpoints engineered for high-throughput inference and direct system integrations.",
+    title: "Agent harness",
+    description: "Robust orchestration infrastructure to securely manage, evaluate, and scale your proprietary multi-agent networks.",
     icon: Code2,
   },
   {
-    title: "Microservice",
-    description: "Decoupled standalone microservices designed to handle specialized cognitive or analytical workloads autonomously.",
+    title: "Data lineage/audit report",
+    description: "Comprehensive empirical validation logs and data audits tracking exact provenance and system vulnerability reports.",
     icon: Server,
   },
   {
