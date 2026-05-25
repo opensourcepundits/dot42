@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Gallery() {
   return (
     <section className="pt-20 pb-section-gap" id="gallery">

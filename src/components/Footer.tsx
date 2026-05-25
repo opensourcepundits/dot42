@@ -1,3 +1,4 @@
+import React from "react";
 import { Code2, Terminal } from "lucide-react";
 
 export function Footer() {
