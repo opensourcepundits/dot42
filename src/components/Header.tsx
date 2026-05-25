@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Header() {
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-10 py-6">

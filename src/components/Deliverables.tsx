@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Code2, Server, LayoutDashboard, Database, Globe, Smartphone, Binary } from "lucide-react";
 
 const deliverables = [

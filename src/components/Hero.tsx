@@ -1,11 +1,17 @@
+import React from "react";
+import { NNBackground } from "./NNBackground";
+
 export function Hero() {
   return (
     <section
-      className="min-h-screen pt-[120px] px-10 flex flex-col justify-center max-w-[1440px] mx-auto"
+      className="relative min-h-screen pt-[120px] px-10 flex flex-col justify-center max-w-[1440px] mx-auto"
       id="hero"
     >
+      <div className="absolute inset-0 -z-10">
+        <NNBackground />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-        <div className="lg:col-span-7 space-y-6 md:space-y-8">
+        <div className="lg:col-span-12 space-y-6 md:space-y-8">
           <h1 className="font-display-lg text-[48px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-tighter">
             Custom Deterministic AI Architectures{" "}
             <span className="block mt-2">
@@ -36,17 +42,7 @@ export function Hero() {
             </button>
           </div>
         </div>
-        <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-center mt-12 lg:mt-0">
-          <div className="relative w-full max-w-[400px] lg:max-w-md xl:max-w-[480px] aspect-square bg-surface-container-low rounded-lg overflow-hidden bento-border">
-            <img
-              alt="Neural Network Visual"
-              className="w-full h-full object-cover mix-blend-lighten opacity-80"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEbCNfxrt79qEk9VnKWEChPNfhDa_eQatVoh-MbFa4kB2JnC4Vbff_qImjz6T8ukTjFcRHmg9I4PTIZ3AxTVOT7o4AAQiemEZ_Vyxs8lsTtuoTRLospaOvQWVapGx4USdRLLtLRhjlObMNyrI2HpryyOMbJVpvI3UNByIK-t6CrKJdjjJ662xMBr0CZT5pp95Vp9MANCw2OkgFc3Sp26zaeaqXxbeGwcjkuCatZHxm8B16iPg-sxA9E46DNZxz3Ybo_RrMXXbbE1k"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-transparent"></div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

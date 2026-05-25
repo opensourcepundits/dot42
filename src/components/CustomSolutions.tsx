@@ -1,3 +1,4 @@
+import React from "react";
 import { Globe, Network, CircuitBoard, Activity } from "lucide-react";
 
 export function CustomSolutions() {
