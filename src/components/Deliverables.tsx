@@ -61,15 +61,17 @@ export function Deliverables() {
           {deliverables.map((item, index) => (
             <div 
               key={index} 
-              className="bg-surface-container border border-outline-variant/30 rounded-lg p-10 flex flex-col gap-6 hover:border-primary-container/50 transition-colors group cursor-default h-full"
+              className="bg-surface-container border border-outline-variant/30 rounded-lg p-8 md:p-10 flex flex-col gap-6 hover:border-primary-container/50 transition-colors group cursor-default h-full"
             >
-              <div className="bg-surface-container-low p-4 rounded-full w-fit group-hover:bg-primary-container/10 transition-colors">
-                <item.icon className="w-8 h-8 text-primary-container" />
-              </div>
-              <div className="flex flex-col h-full">
-                <h3 className="font-headline-lg text-2xl mb-4 text-on-surface">
+              <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-6">
+                <div className="bg-surface-container-low p-3 md:p-4 rounded-full shrink-0 group-hover:bg-primary-container/10 transition-colors">
+                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary-container" />
+                </div>
+                <h3 className="font-headline-lg text-xl md:text-2xl text-on-surface m-0 md:!mb-4">
                   {item.title}
                 </h3>
+              </div>
+              <div className="flex flex-col h-full -mt-2 md:mt-0">
                 <p className="font-body-md text-on-surface-variant leading-relaxed">
                   {item.description}
                 </p>
