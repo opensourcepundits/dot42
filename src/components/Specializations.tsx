@@ -1043,7 +1043,7 @@ const specializationData = [
     title: "Stop Burning Capital on Bloated LLM APIs",
     description: "We perform a robust forensic audit of your enterprise LLM logs to identify where expensive API calls are wasting funds on tasks that can be solved directly with targeted algorithms. We deliver a comprehensive cost-reduction report, then architect and deploy custom deterministic models that replace unnecessary API dependencies—drastically slashing your monthly AI bill while keeping your proprietary data strictly private.",
     icon: CircuitBoard,
-    colSpan: "md:col-span-8 md:order-1 min-h-[350px]",
+    colSpan: "order-first md:col-span-8 md:order-1 min-h-[350px]",
     services: [
       {
         title: "LLM Log & Architecture Auditing",
@@ -1257,7 +1257,7 @@ export function Specializations() {
             key={spec.id}
             data-spec-id={spec.id}
             data-active={centeredId === spec.id}
-            className={`${spec.colSpan} p-8 md:p-10 transition-all duration-500 group flex flex-col justify-between rounded-xl cursor-pointer relative order-none group-hover/grid:blur-[2px] group-hover/grid:opacity-50 md:hover:!opacity-100 md:hover:!blur-none hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] hover:-translate-y-1 data-[active=true]:max-md:!opacity-100 data-[active=true]:max-md:!blur-none data-[active=true]:max-md:shadow-[0_0_30px_rgba(0,229,255,0.15)] data-[active=true]:max-md:-translate-y-1`}
+            className={`${spec.colSpan} p-8 md:p-10 transition-all duration-500 group flex flex-col justify-between rounded-xl cursor-pointer relative group-hover/grid:blur-[2px] group-hover/grid:opacity-50 md:hover:!opacity-100 md:hover:!blur-none hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] hover:-translate-y-1 data-[active=true]:max-md:!opacity-100 data-[active=true]:max-md:!blur-none data-[active=true]:max-md:shadow-[0_0_30px_rgba(0,229,255,0.15)] data-[active=true]:max-md:-translate-y-1`}
             onClick={() => openModal(spec.id)}
           >
             {/* Non-hovered state background and border */}
