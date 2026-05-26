@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Focus,
   Eye,
@@ -1093,6 +1093,32 @@ const specializationData = [
 export function Specializations() {
   const [activeSpecId, setActiveSpecId] = useState<string | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [centeredId, setCenteredId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      let isAnyIntersecting = false;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setCenteredId(entry.target.getAttribute('data-spec-id'));
+          isAnyIntersecting = true;
+        }
+      });
+      // Handle when element leaves center and nothing else enters
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && !isAnyIntersecting) {
+          setCenteredId((prev) => prev === entry.target.getAttribute('data-spec-id') ? null : prev);
+        }
+      });
+    }, {
+      rootMargin: "-40% 0px -40% 0px"
+    });
+
+    const elements = document.querySelectorAll('[data-spec-id]');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const activeSpec = specializationData.find(s => s.id === activeSpecId);
   const services = activeSpec ? activeSpec.services : [];
@@ -1222,18 +1248,23 @@ export function Specializations() {
           Our Functional Specializations
         </h2>
       </header>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter group/grid">
+      <div 
+        className="grid grid-cols-1 md:grid-cols-12 gap-gutter group/grid max-md:data-[has-centered=true]:[&>div]:blur-[2px] max-md:data-[has-centered=true]:[&>div]:opacity-50"
+        data-has-centered={centeredId !== null}
+      >
         {specializationData.map((spec) => (
           <div 
             key={spec.id}
-            className={`${spec.colSpan} p-8 md:p-10 transition-all duration-500 group flex flex-col justify-between rounded-xl cursor-pointer relative order-none group-hover/grid:blur-[2px] group-hover/grid:opacity-50 hover:!opacity-100 hover:!blur-none hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] hover:-translate-y-1`}
+            data-spec-id={spec.id}
+            data-active={centeredId === spec.id}
+            className={`${spec.colSpan} p-8 md:p-10 transition-all duration-500 group flex flex-col justify-between rounded-xl cursor-pointer relative order-none group-hover/grid:blur-[2px] group-hover/grid:opacity-50 md:hover:!opacity-100 md:hover:!blur-none hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] hover:-translate-y-1 data-[active=true]:max-md:!opacity-100 data-[active=true]:max-md:!blur-none data-[active=true]:max-md:shadow-[0_0_30px_rgba(0,229,255,0.15)] data-[active=true]:max-md:-translate-y-1`}
             onClick={() => openModal(spec.id)}
           >
             {/* Non-hovered state background and border */}
-            <div className="absolute inset-0 bg-surface-container border border-outline-variant/30 rounded-xl z-0 transition-opacity duration-500 group-hover:opacity-0" />
+            <div className="absolute inset-0 bg-surface-container border border-outline-variant/30 rounded-xl z-0 transition-opacity duration-500 group-hover:opacity-0 group-data-[active=true]:max-md:opacity-0" />
 
             {/* Hovered state animated outline */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 rounded-xl overflow-hidden flex items-center justify-center border border-transparent">
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-data-[active=true]:max-md:opacity-100 transition-opacity duration-500 z-0 rounded-xl overflow-hidden flex items-center justify-center border border-transparent">
                <div className="absolute inset-0 bg-surface-container z-0" />
                <div className="absolute w-[200%] h-[200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(0,229,255,0)_0%,rgba(0,229,255,0)_70%,rgba(0,229,255,1)_100%)] z-0" />
                <div className="absolute w-[200%] h-[200%] animate-[spin_3s_linear_infinite_reverse] bg-[conic-gradient(from_270deg_at_50%_50%,rgba(0,229,255,0)_0%,rgba(0,229,255,0)_70%,rgba(0,229,255,1)_100%)] z-0 mix-blend-screen opacity-50" />
@@ -1259,11 +1290,11 @@ export function Specializations() {
               </div>
               
               <div className="mt-8 flex items-end justify-between relative z-10">
-                 <div className="flex items-center gap-1 font-label-caps text-xs text-primary-container md:opacity-0 transition-opacity md:group-hover:opacity-100 animate-pulse md:animate-none">
+                 <div className="flex items-center gap-1 font-label-caps text-xs text-primary-container opacity-0 transition-opacity md:group-hover:opacity-100 group-data-[active=true]:max-md:opacity-100 animate-pulse md:animate-none">
                     <span>TAP TO EXPLORE</span>
                     <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
                  </div>
-                 <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105 ml-auto" />
+                 <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 group-data-[active=true]:max-md:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105 group-data-[active=true]:max-md:scale-105 ml-auto" />
               </div>
             </div>
           </div>
