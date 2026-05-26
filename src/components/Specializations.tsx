@@ -1258,8 +1258,12 @@ export function Specializations() {
                 </p>
               </div>
               
-              <div className="mt-8 flex justify-end relative z-10">
-                 <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105" />
+              <div className="mt-8 flex items-end justify-between relative z-10">
+                 <div className="flex items-center gap-1 font-label-caps text-xs text-primary-container md:opacity-0 transition-opacity md:group-hover:opacity-100 animate-pulse md:animate-none">
+                    <span>TAP TO EXPLORE</span>
+                    <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
+                 </div>
+                 <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105 ml-auto" />
               </div>
             </div>
           </div>
