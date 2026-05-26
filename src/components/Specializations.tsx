@@ -740,6 +740,40 @@ const DocScanGraphic = () => (
   </div>
 );
 
+const FineTuningGraphic = () => (
+   <div className="relative w-full h-full border border-outline-variant/30 rounded-lg bg-surface-container-lowest flex flex-col items-center justify-center overflow-hidden min-h-[250px] md:min-h-[300px]">
+     {/* Model Weights Representation */}
+      <div className="flex gap-4 md:gap-6 w-[60%] justify-between items-end h-[100px] border-b border-outline-variant/30 pb-2 z-10">
+         {[0.4, 0.7, 0.3, 0.8, 0.5, 0.9].map((val, i) => (
+             <div key={i} className="relative w-3 md:w-4 bg-outline-variant/20 rounded-full h-full flex flex-col justify-end overflow-hidden">
+                <motion.div 
+                   className="w-full bg-primary-container rounded-full"
+                   animate={{ 
+                      height: [`${val * 100}%`, `${Math.max(0.2, val - 0.2) * 100}%`, `${Math.min(1, val + 0.3) * 100}%`, `${val * 100}%`] 
+                   }}
+                   transition={{ 
+                      duration: 3 + i * 0.5, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                   }}
+                />
+             </div>
+         ))}
+      </div>
+      <div className="mt-6 flex flex-col items-center gap-2 w-full z-10">
+         <div className="w-[50%] h-px bg-outline-variant/50 relative">
+             <motion.div 
+                className="absolute top-1/2 transform -translate-y-1/2 left-0 h-1.5 w-6 bg-primary-container rounded-full drop-shadow-[0_0_6px_rgba(0,229,255,0.4)]"
+                animate={{ left: ["0%", "100%", "0%"] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+             />
+         </div>
+         <div className="text-[10px] md:text-xs text-on-surface-variant font-mono tracking-widest mt-2 uppercase">Parameter Optimization</div>
+      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.03)_1px,transparent_1px)] bg-[length:16px_16px]" />
+   </div>
+);
+
 const specializationData = [
   {
     id: "cv",
@@ -795,7 +829,7 @@ const specializationData = [
         title: "Fine-Tuning LLMs",
         description: "Custom fine-tuning of foundation models on your proprietary datasets to achieve unparalleled domain-specific reasoning and accuracy.",
         metrics: ["DOMAIN ADAPTATION", "TASK SPECIALIZATION"],
-        Graphic: AtomGraphic
+        Graphic: FineTuningGraphic
       },
       {
         title: "Private Enterprise LLMs",
@@ -1188,30 +1222,45 @@ export function Specializations() {
           Our Functional Specializations
         </h2>
       </header>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter group/grid">
         {specializationData.map((spec) => (
           <div 
             key={spec.id}
-            className={`${spec.colSpan} bg-surface-container border border-outline-variant/30 p-8 md:p-10 hover:border-primary-container/50 transition-all group flex flex-col justify-between rounded-lg cursor-pointer relative overflow-hidden order-none`}
+            className={`${spec.colSpan} p-8 md:p-10 transition-all duration-500 group flex flex-col justify-between rounded-xl cursor-pointer relative order-none group-hover/grid:blur-[2px] group-hover/grid:opacity-50 hover:!opacity-100 hover:!blur-none hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] hover:-translate-y-1`}
             onClick={() => openModal(spec.id)}
           >
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6">
-                <spec.icon className="text-primary-container w-6 h-6" />
-                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
-                  {spec.label}
-                </span>
-              </div>
-              <h3 className="font-headline-lg text-2xl md:text-3xl mb-4 text-on-surface">
-                {spec.title}
-              </h3>
-              <p className="font-body-md text-on-surface-variant leading-relaxed">
-                {spec.description}
-              </p>
+            {/* Non-hovered state background and border */}
+            <div className="absolute inset-0 bg-surface-container border border-outline-variant/30 rounded-xl z-0 transition-opacity duration-500 group-hover:opacity-0" />
+
+            {/* Hovered state animated outline */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 rounded-xl overflow-hidden flex items-center justify-center border border-transparent">
+               <div className="absolute inset-0 bg-surface-container z-0" />
+               <div className="absolute w-[200%] h-[200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(0,229,255,0)_0%,rgba(0,229,255,0)_70%,rgba(0,229,255,1)_100%)] z-0" />
+               <div className="absolute w-[200%] h-[200%] animate-[spin_3s_linear_infinite_reverse] bg-[conic-gradient(from_270deg_at_50%_50%,rgba(0,229,255,0)_0%,rgba(0,229,255,0)_70%,rgba(0,229,255,1)_100%)] z-0 mix-blend-screen opacity-50" />
+               <div className="absolute inset-[1px] bg-surface-container rounded-xl z-0" />
+               {/* Inner glow */}
+               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,229,255,0.1),transparent_50%)] z-0" />
             </div>
-            
-            <div className="mt-8 flex justify-end relative z-10">
-               <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105" />
+
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <spec.icon className="text-primary-container w-6 h-6" />
+                  <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
+                    {spec.label}
+                  </span>
+                </div>
+                <h3 className="font-headline-lg text-2xl md:text-3xl mb-4 text-on-surface">
+                  {spec.title}
+                </h3>
+                <p className="font-body-md text-on-surface-variant leading-relaxed">
+                  {spec.description}
+                </p>
+              </div>
+              
+              <div className="mt-8 flex justify-end relative z-10">
+                 <spec.icon className="text-primary-container/10 group-hover:text-primary-container/30 transition-all duration-300 w-16 h-16 group-hover:scale-105" />
+              </div>
             </div>
           </div>
         ))}

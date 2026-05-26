@@ -22,7 +22,7 @@ export function Consult() {
               <div className="flex items-center gap-4 text-on-surface">
                 <Terminal className="text-primary-container w-6 h-6" />
                 <span className="font-data-metric text-data-metric">
-                  protocols@neuralcore.io
+                  contact@dot42.dev
                 </span>
               </div>
             </div>
@@ -51,7 +51,7 @@ export function Consult() {
               </div>
               <div className="group">
                 <label className="font-label-caps text-label-caps text-on-surface-variant block mb-2 uppercase">
-                  WORK EMAIL
+                  EMAIL ADDRESS
                 </label>
                 <input
                   className="w-full bg-transparent border-0 border-b border-outline-variant py-4 px-0 text-on-surface focus:ring-0 focus:border-primary-container font-data-metric text-data-metric focus:outline-none"
