@@ -1,11 +1,13 @@
 export function Header() {
   return (
     <header className="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-10 py-6">
-      <div
-        className="font-display-md text-display-md font-bold tracking-tighter text-on-surface"
-        style={{ fontSize: "32px" }}
-      >
-        .42
+      <div className="flex items-center">
+        {/* Replace '/logo.png' with your actual logo filename once placed in the public/ folder */}
+        <img 
+          src="/logo.png" 
+          alt="Company Logo" 
+          className="h-8 w-auto object-contain"
+        />
       </div>
       <nav className="hidden md:flex gap-8 items-center">
         <a
@@ -18,7 +20,7 @@ export function Header() {
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
           href="#process"
         >
-          Process
+          Work with Us
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
