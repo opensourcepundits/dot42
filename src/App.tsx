@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero";
 import { Specializations } from "./components/Specializations";
 import { Process } from "./components/Process";
 import { Deliverables } from "./components/Deliverables";
+import { CaseStudies } from "./components/CaseStudies";
 import { Consult } from "./components/ConsultSection";
 import { Footer } from "./components/Footer";
 
@@ -15,6 +16,7 @@ export default function App() {
         <Specializations />
         <Process />
         <Deliverables />
+        <CaseStudies />
         <Consult />
       </main>
       <Footer />

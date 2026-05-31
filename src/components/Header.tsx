@@ -28,6 +28,12 @@ export function Header() {
         >
           Deliverables
         </a>
+        <a
+          className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
+          href="#case-studies"
+        >
+          Case Studies
+        </a>
       </nav>
       <div className="flex items-center gap-6">
         <a
