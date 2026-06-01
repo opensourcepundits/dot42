@@ -7,7 +7,7 @@ const ARTICLE_CONTENT = `The initial wave of unbridled optimism surrounding arti
 Far from a low-cost software revolution, the current era of frontier AI resembles a capital-intensive heavy industry.
 
 The Staggering Scale of Capital Expenditure
-To keep up with the demands of training next-generation large language models (LLMs) and expanding data centers, the world’s largest tech companies—often referred to as hyperscalers—have aggressively scaled up their spending.
+To keep up with the demands of training next-generation large language models (LLMs) and expanding data centers, the world’s largest tech companies, often referred to as hyperscalers, have aggressively scaled up their spending.
 
 According to financial analyses, hyperscalers like Amazon, Google, Meta, Microsoft, and Oracle allocated approximately $342 billion to capital expenditures in 2025 alone, representing a massive 62 percent increase from the prior year (Wyonch, 2026). This historic upward trajectory shows no signs of slowing down, with AI-related capital expenditures projected to hit a jaw-dropping $527 billion in 2026 (Wyonch, 2026).
 
@@ -40,7 +40,7 @@ The central anxiety currently gripping the financial sector is whether these his
 
 Historically, large IT companies funded their expansions internally out of their operating cash flows. Today, the sheer scale of the AI infrastructure boom is forcing leading firms to transition heavily toward debt financing (Aldasoro, 2026).
 
-While AI investments have significantly boosted gross domestic product (GDP) via capital deepening—accounting for a substantial portion of recent US economic growth through the construction of facilities and chip manufacturing—macroeconomic data shows that this investment has not yet fueled widespread, measurable productivity growth across G7 countries (Wyonch, 2026). Economists remain sharply divided on the long-term impact, with projections ranging from a robust 1.5 percent annual labor-productivity growth down to a conservative 1 percent cumulative gain spread out over an entire decade (Wyonch, 2026).
+While AI investments have significantly boosted gross domestic product (GDP) via capital deepening, accounting for a substantial portion of recent US economic growth through the construction of facilities and chip manufacturing, macroeconomic data shows that this investment has not yet fueled widespread, measurable productivity growth across G7 countries (Wyonch, 2026). Economists remain sharply divided on the long-term impact, with projections ranging from a robust 1.5 percent annual labor-productivity growth down to a conservative 1 percent cumulative gain spread out over an entire decade (Wyonch, 2026).
 
 Ultimately, as the cost of electricity, hardware amortizations, and debt servicing remain high, enterprises are facing a sobering reality: artificial intelligence is currently an incredibly expensive asset to maintain, and the clock is ticking for the software to generate the revenue needed to justify its historic price tag.
 
@@ -64,7 +64,7 @@ The industry is undergoing a structural paradigm shift. Instead of relying on a 
 The Economic Catalyst for Smaller Models
 The primary driver behind this architectural shift is pure cost efficiency. Trillion-parameter frontier models require massive computing power, expensive token-based API fees, and complex cloud infrastructure.
 
-Recent enterprise data highlights that small language models—typically ranging from 500 million to 10 billion parameters—deliver 70 to 90 percent of frontier model capability on standard business workloads at a mere 5 to 15 percent of the cost (Logiciel, 2026). When evaluating production metrics at scale, specialized SLMs do not just match frontier performance at a lower price point; they actively outperform them in critical operational categories:
+Recent enterprise data highlights that small language models, typically ranging from 500 million to 10 billion parameters, deliver 70 to 90 percent of frontier model capability on standard business workloads at a mere 5 to 15 percent of the cost (Logiciel, 2026). When evaluating production metrics at scale, specialized SLMs do not just match frontier performance at a lower price point; they actively outperform them in critical operational categories:
 
 Drastically Lower Inference Cost: Swapping a generalized model for an SLM allows organizations to slash their routine, high-volume API costs.
 
@@ -77,7 +77,7 @@ For enterprises managing millions of daily queries, shifting from a generic clou
 Customization and the "Specialization Advantage"
 Beyond financial considerations, big generalist models bring vast amounts of capability that specific enterprise tasks simply do not require. A customer service bot or a document-parsing pipeline does not need to know how to write poetry or analyze historical precedents; it needs to understand the company's specific product line, compliance protocols, and legacy data structures.
 
-This reality has introduced the "Specialization Advantage" (Pfeifer, 2026). When an enterprise takes a lightweight base open-source SLM (such as Microsoft's Phi series, Google's Gemma, or Meta's smaller LLaMA variants) and fine-tunes it on proprietary data, it creates a unique competitive moat. A fine-tuned, smaller model frequently beats massive, generalist models at focused tasks—such as extracting metadata from unstructured financial receipts or automating medical data transcription—because its training dataset is meticulously curated for that specific domain (Trantor, 2026; Reddit, 2026).
+This reality has introduced the "Specialization Advantage" (Pfeifer, 2026). When an enterprise takes a lightweight base open-source SLM (such as Microsoft's Phi series, Google's Gemma, or Meta's smaller LLaMA variants) and fine-tunes it on proprietary data, it creates a unique competitive moat. A fine-tuned, smaller model frequently beats massive, generalist models at focused tasks, such as extracting metadata from unstructured financial receipts or automating medical data transcription, because its training dataset is meticulously curated for that specific domain (Trantor, 2026; Reddit, 2026).
 
 Privacy, Security, and Data Governance
 As regulatory scrutiny intensifies, data sovereignty has become a major roadblock for cloud-based LLM adoption. Passing highly sensitive corporate data, medical records, or proprietary financial code through external, third-party cloud APIs introduces strict regulatory risks under compliance structures like GDPR or HIPAA.
@@ -87,7 +87,7 @@ Smaller models offer a definitive solution to this security bottleneck. Because 
 The Rise of Hybrid and Routing Architectures
 The transition to smaller models is not a total rejection of larger frontier models; rather, it is a migration toward intelligent, hybrid orchestration. Instead of picking a single model for everything, the standard enterprise architecture uses a "routing framework" (Logiciel, 2026).
 
-Under this routing architecture, a central gatekeeper assesses incoming user queries. If a task requires highly complex, multi-step strategic analysis or broad general knowledge, it is routed to an external frontier LLM. However, if the task is a repetitive, structured function—accounting for roughly 80% of routine enterprise workloads—it is handled by a cheap, fast, customized small model (Reddit, 2026).
+Under this routing architecture, a central gatekeeper assesses incoming user queries. If a task requires highly complex, multi-step strategic analysis or broad general knowledge, it is routed to an external frontier LLM. However, if the task is a repetitive, structured function, accounting for roughly 80% of routine enterprise workloads, it is handled by a cheap, fast, customized small model (Reddit, 2026).
 
 Ultimately, the era of treating AI as an unstructured, experimental playground is over. As organizations focus heavily on Total Cost of Ownership (TCO) and actual return on investment, the businesses that master the rapid deployment and fine-tuning of domain-specific small models will operate with immense cost and speed advantages over competitors still dependent on bloated, external cloud APIs.
 
@@ -106,7 +106,7 @@ const caseStudies = [
     title: "AI is neither green nor cheap: a study of architectural malpractice",
     metric: "Macroeconomic Reality",
     description:
-      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross 1 million requests per month, driving commercial API inference costs between $30,000 to $150,000+ monthly ($360K to $1.8M annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to $1,000+ per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over 37% of enterprises now burn through more than $250,000 annually strictly on external LLM APIs—with more than 1,000 top-tier organizations exceeding $1,000,000 per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
+      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross 1 million requests per month, driving commercial API inference costs between $30,000 to $150,000+ monthly ($360K to $1.8M annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to $1,000+ per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over 37% of enterprises now burn through more than $250,000 annually strictly on external LLM APIs, with more than 1,000 top-tier organizations exceeding $1,000,000 per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
     article: ARTICLE_CONTENT
   },
@@ -194,21 +194,17 @@ export function CaseStudies() {
             >
               <div className="p-8 md:p-10 flex flex-col justify-between h-full overflow-y-auto">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 border border-primary-container/20 text-primary-container font-data-metric text-xs uppercase mb-6">
-                    <span className="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
-                    {caseStudies[currentIndex].metric}
-                  </div>
                   <h3 className="font-headline-md text-2xl lg:text-3xl text-on-surface mb-5">
                     {caseStudies[currentIndex].title}
                   </h3>
-                  <div className="text-on-surface-variant text-[15px] leading-relaxed bg-transparent border-0 border-b border-outline-variant/20 pb-6 mb-6 font-body-md space-y-3 pr-4">
+                  <div className="text-on-surface-variant text-[15px] leading-relaxed bg-transparent font-body-md space-y-3 pr-4">
                     {caseStudies[currentIndex].description.split('\n\n').map((paragraph, idx) => (
                       <p key={idx}>{paragraph}</p>
                     ))}
                   </div>
                 </div>
                 <div 
-                  className={`mt-10 flex items-center gap-2 text-primary-container font-label-caps text-sm w-fit ${caseStudies[currentIndex].article ? 'cursor-pointer group' : 'opacity-50 cursor-not-allowed'}`}
+                  className={`mt-6 flex items-center gap-2 text-primary-container font-label-caps text-sm w-fit flex-shrink-0 ${caseStudies[currentIndex].article ? 'cursor-pointer group' : 'opacity-50 cursor-not-allowed'}`}
                   onClick={() => {
                     if (caseStudies[currentIndex].article) {
                       setSelectedArticle({
