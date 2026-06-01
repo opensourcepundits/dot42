@@ -106,7 +106,7 @@ const caseStudies = [
     title: "AI is neither green nor cheap: a study of architectural malpractice",
     metric: "Macroeconomic Reality",
     description:
-      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross 1 million requests per month, driving commercial API inference costs between $30,000 to $150,000+ monthly ($360K to $1.8M annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to $1,000+ per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over 37% of enterprises now burn through more than $250,000 annually strictly on external LLM APIs—with more than 1,000 top-tier organizations exceeding $1,000,000 per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)\n\n• The Abandonment Crisis: Driven by failing unit economics when trying to scale these prototype API costs to production, 42% of organizations abandoned their AI initiatives, scraping 46% of all Proofs of Concept (PoCs) before deployment. (McKinsey & Witness AI)",
+      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross 1 million requests per month, driving commercial API inference costs between $30,000 to $150,000+ monthly ($360K to $1.8M annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to $1,000+ per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over 37% of enterprises now burn through more than $250,000 annually strictly on external LLM APIs—with more than 1,000 top-tier organizations exceeding $1,000,000 per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
     tags: ["Market Analysis", "Infrastructure", "Energy Demand"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
     article: ARTICLE_CONTENT
@@ -116,22 +116,13 @@ const caseStudies = [
     title: "Small custom models are the way to go",
     metric: "80% Workload",
     description:
-      "Why 2026 marks the turning point toward Small Language Models (SLMs) to handle complex routine enterprise tasks efficiently.",
+      "• The Challenge: Businesses are increasingly frustrated by the bloated infrastructure and unpredictable costs of general-purpose models, which often process unnecessary data and struggle with highly specialized, domain-specific tasks.\n\n• The Solution: We transitioned workflows to lean, custom-trained Small Language Models (SLMs) fine-tuned on curated industry datasets, enabling high-performance inference that runs entirely on cost-effective, edge-ready hardware.\n\n• The Impact: Achieved a 90% reduction in infrastructure overhead and 4x faster response times, while significantly boosting task-specific accuracy and ensuring total data sovereignty.",
     tags: ["SLMs", "Enterprise AI", "Cost Optimization"],
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=1931",
     article: ARTICLE_2_CONTENT
   },
   {
     id: 3,
-    title: "Slashing Verification Costs via Multi-Agent Workflows",
-    metric: "-85% Review Time",
-    description:
-      "• The Challenge: A top-tier legal firm was manually auditing thousands of documents against precedents using standard commercial LLMs. The high token-count limits and latency drastically raised the cost per case without guaranteeing deterministic accuracy.\n\n• The Solution: We deployed an air-gapped, customized semantic processing pipeline anchored directly to their internal document repository via standard MCP servers, orchestrated by a robust multi-agent network.\n\n• The Impact: Reduced legal review hours by 85% while fully preserving client confidentiality through strict, role-based tool restrictions and exclusively private local inference.",
-    tags: ["Multi-Agent Networks", "Data Sovereignty", "Legal Tech"],
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=2070",
-  },
-  {
-    id: 4,
     title: "Deterministic Vision Pipelines for High-Speed Manufacturing",
     metric: "$2.4M Annual Savings",
     description:
@@ -140,7 +131,7 @@ const caseStudies = [
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070",
   },
   {
-    id: 5,
+    id: 4,
     title: "Preemptive Churn Interception via Behavioral Analytics",
     metric: "+22% LTV Retention",
     description:
@@ -195,7 +186,7 @@ export function CaseStudies() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden bg-surface-container-low border border-outline-variant/20 rounded-lg">
+        <div className="relative overflow-hidden bg-surface-container-low border border-outline-variant/20 rounded-lg min-h-[550px] lg:min-h-[480px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -203,9 +194,9 @@ export function CaseStudies() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="flex flex-col h-full"
+              className="flex flex-col h-full absolute inset-0"
             >
-              <div className="p-8 md:p-10 flex flex-col justify-between h-full">
+              <div className="p-8 md:p-10 flex flex-col justify-between h-full overflow-y-auto">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 border border-primary-container/20 text-primary-container font-data-metric text-xs uppercase mb-6">
                     <span className="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
