@@ -106,7 +106,7 @@ const caseStudies = [
     title: "AI is neither green nor cheap: a study of architectural malpractice",
     metric: "Macroeconomic Reality",
     description:
-      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross 1 million requests per month, driving commercial API inference costs between $30,000 to $150,000+ monthly ($360K to $1.8M annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to $1,000+ per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over 37% of enterprises now burn through more than $250,000 annually strictly on external LLM APIs, with more than 1,000 top-tier organizations exceeding $1,000,000 per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
+      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross **1 million** requests per month, driving commercial API inference costs between **$30,000** to **$150,000+** monthly (**$360K** to **$1.8M** annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to **$1,000+** per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over **37%** of enterprises now burn through more than **$250,000** annually strictly on external LLM APIs, with more than **1,000** top-tier organizations exceeding **$1,000,000** per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
     article: ARTICLE_CONTENT
   },
@@ -115,7 +115,7 @@ const caseStudies = [
     title: "Small custom models are the way to go",
     metric: "80% Workload",
     description:
-      "• The Challenge: Businesses are increasingly frustrated by the bloated infrastructure and unpredictable costs of general-purpose models, which often process unnecessary data and struggle with highly specialized, domain-specific tasks.\n\n• The Solution: We transitioned workflows to lean, custom-trained Small Language Models (SLMs) fine-tuned on curated industry datasets, enabling high-performance inference that runs entirely on cost-effective, edge-ready hardware.\n\n• The Impact: Achieved a 90% reduction in infrastructure overhead and 4x faster response times, while significantly boosting task-specific accuracy and ensuring total data sovereignty.",
+      "• The Challenge: Businesses are increasingly frustrated by the bloated infrastructure and unpredictable costs of general-purpose models, which often process unnecessary data and struggle with highly specialized, domain-specific tasks.\n\n• The Solution: We transitioned workflows to lean, custom-trained Small Language Models (SLMs) fine-tuned on curated industry datasets, enabling high-performance inference that runs entirely on cost-effective, edge-ready hardware.\n\n• The Impact: Achieved a **90%** reduction in infrastructure overhead and **4x** faster response times, while significantly boosting task-specific accuracy and ensuring total data sovereignty.",
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=1931",
     article: ARTICLE_2_CONTENT
   },
@@ -124,7 +124,7 @@ const caseStudies = [
     title: "Deterministic Vision Pipelines for High-Speed Manufacturing",
     metric: "$2.4M Annual Savings",
     description:
-      "• The Challenge: An automotive parts supplier suffered from microscopic production-line defects that evaded human QA, resulting in systemic downstream assembly errors and massive monthly product scrap.\n\n• The Solution: We engineered and quantized a custom localized neural network (using INT8 optimization), deploying it directly onto NVIDIA Jetson hardware at the assembly line for strictly offline inference.\n\n• The Impact: Attained sub-millisecond local processing speed without ever touching the cloud. The system detected 99.8% of defects on the line, producing immediate operational savings of $2.4M per year.",
+      "• The Challenge: An automotive parts supplier suffered from microscopic production-line defects that evaded human QA, resulting in systemic downstream assembly errors and massive monthly product scrap.\n\n• The Solution: We engineered and quantized a custom localized neural network (using INT8 optimization), deploying it directly onto NVIDIA Jetson hardware at the assembly line for strictly offline inference.\n\n• The Impact: Attained sub-millisecond local processing speed without ever touching the cloud. The system detected **99.8%** of defects on the line, producing immediate operational savings of **$2.4M** per year.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070",
   },
   {
@@ -132,7 +132,7 @@ const caseStudies = [
     title: "Preemptive Churn Interception via Behavioral Analytics",
     metric: "+22% LTV Retention",
     description:
-      "• The Challenge: A massive enterprise SaaS platform struggled with reactive churn management. They were frequently losing their highest-value subscribers because their data systems could not reliably flag early dissatisfaction signals.\n\n• The Solution: We integrated algorithmic forecasting models to project precise lifetime value against highly nuanced transactional data, seamlessly hooking proactive engagement triggers into their CRM environments.\n\n• The Impact: The client successfully shifted from reactive damage repair to proactive rescue, identifying high-risk accounts weeks earlier and increasing total top-tier subscriber LTV by 22%.",
+      "• The Challenge: A massive enterprise SaaS platform struggled with reactive churn management. They were frequently losing their highest-value subscribers because their data systems could not reliably flag early dissatisfaction signals.\n\n• The Solution: We integrated algorithmic forecasting models to project precise lifetime value against highly nuanced transactional data, seamlessly hooking proactive engagement triggers into their CRM environments.\n\n• The Impact: The client successfully shifted from reactive damage repair to proactive rescue, identifying high-risk accounts weeks earlier and increasing total top-tier subscriber LTV by **22%**.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
   },
 ];
@@ -140,6 +140,15 @@ const caseStudies = [
 export function CaseStudies() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedArticle, setSelectedArticle] = useState<{title: string, content: string} | null>(null);
+
+  const formatText = (text: string) => {
+    return text.split(/(\*\*.*?\*\*)/).map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={i} className="font-semibold text-on-surface">{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % caseStudies.length);
@@ -199,7 +208,7 @@ export function CaseStudies() {
                   </h3>
                   <div className="text-on-surface-variant text-[15px] leading-relaxed bg-transparent font-body-md space-y-3 pr-4">
                     {caseStudies[currentIndex].description.split('\n\n').map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
+                      <p key={idx}>{formatText(paragraph)}</p>
                     ))}
                   </div>
                 </div>
@@ -263,7 +272,7 @@ export function CaseStudies() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-surface/90 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/95"
             onClick={() => setSelectedArticle(null)}
           >
             <motion.div
