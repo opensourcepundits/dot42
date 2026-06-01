@@ -107,7 +107,6 @@ const caseStudies = [
     metric: "Macroeconomic Reality",
     description:
       "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross 1 million requests per month, driving commercial API inference costs between $30,000 to $150,000+ monthly ($360K to $1.8M annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to $1,000+ per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over 37% of enterprises now burn through more than $250,000 annually strictly on external LLM APIs—with more than 1,000 top-tier organizations exceeding $1,000,000 per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
-    tags: ["Market Analysis", "Infrastructure", "Energy Demand"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
     article: ARTICLE_CONTENT
   },
@@ -117,7 +116,6 @@ const caseStudies = [
     metric: "80% Workload",
     description:
       "• The Challenge: Businesses are increasingly frustrated by the bloated infrastructure and unpredictable costs of general-purpose models, which often process unnecessary data and struggle with highly specialized, domain-specific tasks.\n\n• The Solution: We transitioned workflows to lean, custom-trained Small Language Models (SLMs) fine-tuned on curated industry datasets, enabling high-performance inference that runs entirely on cost-effective, edge-ready hardware.\n\n• The Impact: Achieved a 90% reduction in infrastructure overhead and 4x faster response times, while significantly boosting task-specific accuracy and ensuring total data sovereignty.",
-    tags: ["SLMs", "Enterprise AI", "Cost Optimization"],
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=1931",
     article: ARTICLE_2_CONTENT
   },
@@ -127,7 +125,6 @@ const caseStudies = [
     metric: "$2.4M Annual Savings",
     description:
       "• The Challenge: An automotive parts supplier suffered from microscopic production-line defects that evaded human QA, resulting in systemic downstream assembly errors and massive monthly product scrap.\n\n• The Solution: We engineered and quantized a custom localized neural network (using INT8 optimization), deploying it directly onto NVIDIA Jetson hardware at the assembly line for strictly offline inference.\n\n• The Impact: Attained sub-millisecond local processing speed without ever touching the cloud. The system detected 99.8% of defects on the line, producing immediate operational savings of $2.4M per year.",
-    tags: ["Edge AI", "Computer Vision", "Industrial QA"],
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070",
   },
   {
@@ -136,7 +133,6 @@ const caseStudies = [
     metric: "+22% LTV Retention",
     description:
       "• The Challenge: A massive enterprise SaaS platform struggled with reactive churn management. They were frequently losing their highest-value subscribers because their data systems could not reliably flag early dissatisfaction signals.\n\n• The Solution: We integrated algorithmic forecasting models to project precise lifetime value against highly nuanced transactional data, seamlessly hooking proactive engagement triggers into their CRM environments.\n\n• The Impact: The client successfully shifted from reactive damage repair to proactive rescue, identifying high-risk accounts weeks earlier and increasing total top-tier subscriber LTV by 22%.",
-    tags: ["Predictive Models", "Data Integration", "FinTech"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
   },
 ];
@@ -208,16 +204,6 @@ export function CaseStudies() {
                   <div className="text-on-surface-variant text-[15px] leading-relaxed bg-transparent border-0 border-b border-outline-variant/20 pb-6 mb-6 font-body-md space-y-3 pr-4">
                     {caseStudies[currentIndex].description.split('\n\n').map((paragraph, idx) => (
                       <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    {caseStudies[currentIndex].tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-label-caps text-on-surface-variant border border-outline-variant/40 px-3 py-1.5 uppercase tracking-wider rounded"
-                      >
-                        {tag}
-                      </span>
                     ))}
                   </div>
                 </div>
