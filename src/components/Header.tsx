@@ -1,9 +1,27 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  useEffect(() => {
+    // Check initial preference from class on html element or default to false
+    setIsLightMode(document.documentElement.classList.contains("light"));
+  }, []);
+
+  const toggleLightMode = () => {
+    setIsLightMode((prev) => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.add("light");
+      } else {
+        document.documentElement.classList.remove("light");
+      }
+      return next;
+    });
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -26,7 +44,7 @@ export function Header() {
           <img 
             src="/logo.png" 
             alt="Company Logo" 
-            className="h-8 w-auto object-contain"
+            className={`h-8 w-auto object-contain transition-all duration-300 ${isLightMode ? 'invert' : ''}`}
           />
         </div>
         
@@ -43,6 +61,13 @@ export function Header() {
         </nav>
         
         <div className="hidden md:flex items-center gap-6">
+          <button
+            onClick={toggleLightMode}
+            className="text-on-surface-variant hover:text-primary-container transition-colors p-2 rounded-full hover:bg-surface-container-low"
+            aria-label="Toggle light mode"
+          >
+            {isLightMode ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          </button>
           <a
             className="bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-3 scale-95 active:scale-90 transition-transform hover:brightness-110 uppercase"
             href="#consult"
@@ -51,7 +76,14 @@ export function Header() {
           </a>
         </div>
 
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleLightMode}
+            className="text-on-surface-variant hover:text-primary-container p-2"
+            aria-label="Toggle light mode"
+          >
+            {isLightMode ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-on-surface-variant hover:text-primary-container p-2"
