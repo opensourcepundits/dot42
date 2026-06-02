@@ -197,7 +197,7 @@ export function CaseStudies() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div className="max-w-2xl">
             <h2 className="font-headline-lg text-headline-lg mb-6 text-on-surface">
-              Featured Articles & Implementations
+              Case studies
             </h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant">
               Explore our latest thoughts, architecture deployments, and infrastructure performance metrics across enterprise ecosystems.
