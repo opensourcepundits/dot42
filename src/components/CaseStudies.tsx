@@ -106,7 +106,7 @@ const caseStudies = [
     title: "AI is neither green nor cheap: a study of architectural malpractice",
     metric: "Macroeconomic Reality",
     description:
-      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross **1 million** requests per month, driving commercial API inference costs between **$30,000** to **$150,000+** monthly (**$360K** to **$1.8M** annually) just to keep the lights on. (Azilen Infrastructure Cost Audit)\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to **$1,000+** per user, per month in API tokens. (Anthropic Enterprise Terms / Simon Willison Audit)\n\n• The Enterprise Baseline: Over **37%** of enterprises now burn through more than **$250,000** annually strictly on external LLM APIs, with more than **1,000** top-tier organizations exceeding **$1,000,000** per year in commercial AI platform spend. (Kong Architecture Survey / Anthropic Corporate Disclosures)",
+      "The Realities of the API Token Bleed:\n\n• The High-Volume Enterprise Bill: High-volume automated systems and RAG pipelines easily cross **1 million** requests per month, driving commercial API inference costs between **$30,000** to **$150,000+** monthly (**$360K** to **$1.8M** annually) just to keep the lights on.\n\n• The Per-User Scaling Trap: Major AI vendors have quietly shifted enterprise tier pricing to a combined model: flat seat fees plus un-capped API usage rates. For power users deploying coding and agentic loops, actual consumption easily spikes to **$1,000+** per user, per month in API tokens.\n\n• The Enterprise Baseline: Over **37%** of enterprises now burn through more than **$250,000** annually strictly on external LLM APIs, with more than **1,000** top-tier organizations exceeding **$1,000,000** per year in commercial AI platform spend.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
     article: ARTICLE_CONTENT
   },
@@ -115,7 +115,7 @@ const caseStudies = [
     title: "Small custom models are the way to go",
     metric: "80% Workload",
     description:
-      "• The Challenge: Businesses are increasingly frustrated by the bloated infrastructure and unpredictable costs of general-purpose models, which often process unnecessary data and struggle with highly specialized, domain-specific tasks.\n\n• The Solution: We transitioned workflows to lean, custom-trained Small Language Models (SLMs) fine-tuned on curated industry datasets, enabling high-performance inference that runs entirely on cost-effective, edge-ready hardware.\n\n• The Impact: Achieved a **90%** reduction in infrastructure overhead and **4x** faster response times, while significantly boosting task-specific accuracy and ensuring total data sovereignty.",
+      "• The Challenge: Businesses are increasingly frustrated by the bloated infrastructure and unpredictable costs of general-purpose models, which often process unnecessary data and struggle with highly specialized, domain-specific tasks.\n\n• The Solution: We transitioned workflows to lean, custom-trained Small Language Models (SLMs) fine-tuned on curated industry datasets, enabling high-performance inference that runs entirely on cost-effective, edge-ready hardware. Custom ML models trained on proprietary enterprise data for hyper specificity have generated **99%** accuracy and millisecond inference speed at **100x** cheaper prices.\n\n• The Impact: Achieved a **90%** reduction in infrastructure overhead and **4x** faster response times, while significantly boosting task-specific accuracy and ensuring total data sovereignty.",
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=1931",
     article: ARTICLE_2_CONTENT
   },
@@ -142,9 +142,23 @@ export function CaseStudies() {
   const [selectedArticle, setSelectedArticle] = useState<{title: string, content: string} | null>(null);
 
   const formatText = (text: string) => {
-    return text.split(/(\*\*.*?\*\*)/).map((part, i) => {
+    return text.split(/(\*\*.*?\*\*|\([^)]+(?:Audit|Disclosures)[^)]*\))/).map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return <strong key={i} className="font-semibold text-on-surface">{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith('(') && part.endsWith(')') && (part.includes('Audit') || part.includes('Disclosures'))) {
+        const refText = part.slice(1, -1);
+        return (
+          <a
+            key={i}
+            href={`https://www.google.com/search?q=${encodeURIComponent(refText)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary-container hover:underline"
+          >
+            {part}
+          </a>
+        );
       }
       return part;
     });
