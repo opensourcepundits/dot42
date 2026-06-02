@@ -1,6 +1,20 @@
 import { Code2, Terminal } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export function Footer() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+    
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    });
+    
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -13,9 +27,9 @@ export function Footer() {
       <div className="flex flex-col items-center md:items-start gap-6">
         <div className="flex items-center cursor-pointer" onClick={scrollToTop}>
           <img 
-            src="/logo.png" 
+            src={isDarkMode ? "/logo.png" : "/logo-dark.png"} 
             alt="Company Logo" 
-            className="h-8 w-auto object-contain md:h-8"
+            className="h-8 w-auto object-contain transition-all duration-300 md:h-8"
           />
         </div>
         <p className="font-label-caps text-label-caps tracking-widest text-on-surface-variant max-w-xs text-center md:text-left leading-loose uppercase">

@@ -4,20 +4,20 @@ import { motion, AnimatePresence } from "motion/react";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLightMode, setIsLightMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     // Check initial preference from class on html element or default to false
-    setIsLightMode(document.documentElement.classList.contains("light"));
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
   }, []);
 
-  const toggleLightMode = () => {
-    setIsLightMode((prev) => {
+  const toggleDarkMode = () => {
+    setIsDarkMode((prev) => {
       const next = !prev;
       if (next) {
-        document.documentElement.classList.add("light");
+        document.documentElement.classList.add("dark");
       } else {
-        document.documentElement.classList.remove("light");
+        document.documentElement.classList.remove("dark");
       }
       return next;
     });
@@ -42,9 +42,9 @@ export function Header() {
       <header className="fixed top-0 w-full z-[110] bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-6 md:px-10 py-5 md:py-6">
         <div className="flex items-center cursor-pointer" onClick={scrollToTop}>
           <img 
-            src="/logo.png" 
+            src={isDarkMode ? "/logo.png" : "/logo-dark.png"} 
             alt="Company Logo" 
-            className={`h-8 w-auto object-contain transition-all duration-300 ${isLightMode ? 'invert' : ''}`}
+            className="h-8 w-auto object-contain transition-all duration-300"
           />
         </div>
         
@@ -62,11 +62,11 @@ export function Header() {
         
         <div className="hidden md:flex items-center gap-6">
           <button
-            onClick={toggleLightMode}
+            onClick={toggleDarkMode}
             className="text-on-surface-variant hover:text-primary-container transition-colors p-2 rounded-full hover:bg-surface-container-low"
-            aria-label="Toggle light mode"
+            aria-label="Toggle dark mode"
           >
-            {isLightMode ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
           <a
             className="bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-3 scale-95 active:scale-90 transition-transform hover:brightness-110 uppercase"
@@ -78,11 +78,11 @@ export function Header() {
 
         <div className="md:hidden flex items-center gap-2">
           <button
-            onClick={toggleLightMode}
+            onClick={toggleDarkMode}
             className="text-on-surface-variant hover:text-primary-container p-2"
-            aria-label="Toggle light mode"
+            aria-label="Toggle dark mode"
           >
-            {isLightMode ? <Moon size={20} /> : <Sun size={20} />}
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

@@ -2,13 +2,13 @@ import { motion } from "motion/react";
 
 const networkLayers = [
   { id: 'i', x: 2, nodes: [35, 50, 65] },
-  { id: 'h1', x: 26, nodes: [15, 38, 62, 85] },
+  { id: 'h1', x: 26, nodes: [10, 30, 50, 70, 90] },
   { id: 'h2', x: 50, nodes: [15, 38, 62, 85] },
   { id: 'h3', x: 74, nodes: [15, 38, 62, 85] },
   { id: 'o', x: 98, nodes: [35, 65] }
 ];
 
-const networkLinks: Array<{id: string, x1: number, y1: number, x2: number, y2: number}> = [];
+const networkLinks: Array<{id: string, x1: number, y1: number, x2: number, y2: number, delay: number, duration: number}> = [];
 for (let l = 0; l < networkLayers.length - 1; l++) {
   const sourceLayer = networkLayers[l];
   const targetLayer = networkLayers[l+1];
@@ -17,7 +17,9 @@ for (let l = 0; l < networkLayers.length - 1; l++) {
       networkLinks.push({
         id: `link-${sourceLayer.id}${sIdx}-${targetLayer.id}${tIdx}`,
         x1: sourceLayer.x, y1: sourceLayer.nodes[sIdx],
-        x2: targetLayer.x, y2: targetLayer.nodes[tIdx]
+        x2: targetLayer.x, y2: targetLayer.nodes[tIdx],
+        delay: Math.random() * 5,
+        duration: 3 + Math.random() * 4
       });
     }
   }
@@ -28,7 +30,7 @@ const numPaths = 12;
 for (let p=0; p < numPaths; p++) {
   const path = [];
   path.push([0, 1, 2][Math.floor(Math.random() * 3)]); // i
-  path.push([0, 2, 3][Math.floor(Math.random() * 3)]); // h1
+  path.push([0, 2, 3, 4][Math.floor(Math.random() * 4)]); // h1
   path.push([0, 1, 3][Math.floor(Math.random() * 3)]); // h2
   path.push([1, 2, 3][Math.floor(Math.random() * 3)]); // h3
   path.push([0, 1][Math.floor(Math.random() * 2)]); // o
@@ -98,13 +100,15 @@ export function Hero() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.04)_1px,transparent_1px)] bg-[length:16px_16px]" />
             <svg viewBox="0 0 100 100" className="w-[90%] h-[90%] z-10 overflow-visible drop-shadow-[0_0_8px_rgba(0,229,255,0.15)]">
               {networkLinks.map(link => (
-                <line 
+                <motion.line 
                   key={`${link.id}-base`} 
                   x1={link.x1} y1={link.y1} 
                   x2={link.x2} y2={link.y2} 
-                  stroke="#bac9cc" 
+                  stroke="var(--color-outline-variant)" 
                   strokeWidth="0.4" 
-                  strokeOpacity="0.15" 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.15, 0] }}
+                  transition={{ duration: link.duration, repeat: Infinity, delay: link.delay, ease: "linear" }}
                 />
               ))}
               
@@ -113,7 +117,7 @@ export function Hero() {
                   key={link.id} 
                   x1={link.x1} y1={link.y1} 
                   x2={link.x2} y2={link.y2} 
-                  stroke="#00e5ff" 
+                  stroke="var(--color-primary-container)" 
                   strokeWidth="0.8" 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 0.8, 0, 0] }}
@@ -126,7 +130,7 @@ export function Hero() {
                 <motion.circle 
                   key={node.id} 
                   cx={node.x} cy={node.y} 
-                  fill={node.dropsOut ? "#bac9cc" : "#00daf3"}
+                  fill={node.dropsOut ? "var(--color-outline-variant)" : "var(--color-primary-container)"}
                   animate={
                     node.dropsOut 
                       ? { opacity: [1, 1, 0.15, 0.15, 1], r: [2, 2, 1.5, 1.5, 2] } 
