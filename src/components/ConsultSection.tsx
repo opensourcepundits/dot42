@@ -63,7 +63,7 @@ export function Consult() {
               <div className="flex items-center gap-4 text-on-surface">
                 <Terminal className="text-primary-container w-6 h-6" />
                 <span className="font-data-metric text-data-metric">
-                  protocols@neuralcore.io
+                  contact@dot42.dev
                 </span>
               </div>
             </div>
