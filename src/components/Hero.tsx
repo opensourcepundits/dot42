@@ -72,9 +72,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-            Architecting bespoke neural networks and enterprise data pipelines.
-            Precision engineering for the next generation of data-driven
-            intelligence.
+            We build custom AI models for your business that run 100x cheaper and respond in milliseconds.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
             <button 

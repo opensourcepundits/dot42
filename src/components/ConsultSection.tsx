@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Terminal, CheckCircle } from "lucide-react";
 
 export function Consult() {
@@ -12,7 +12,7 @@ export function Consult() {
     setError(null);
 
     const formData = new FormData(e.currentTarget);
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "33aa5f6d-3943-4153-b8af-3b038f7cb9f2";
+    const accessKey = (import.meta as any).env?.VITE_WEB3FORMS_ACCESS_KEY || "33aa5f6d-3943-4153-b8af-3b038f7cb9f2";
 
     if (!accessKey) {
       setError("Web3Forms access key is missing. Please add it to your environment variables.");
@@ -63,7 +63,7 @@ export function Consult() {
               <div className="flex items-center gap-4 text-on-surface">
                 <Terminal className="text-primary-container w-6 h-6" />
                 <span className="font-data-metric text-data-metric">
-                  contact@dot42.dev
+                  protocols@neuralcore.io
                 </span>
               </div>
             </div>
