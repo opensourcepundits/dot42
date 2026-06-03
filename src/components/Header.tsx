@@ -31,6 +31,18 @@ export function Header() {
     window.history.pushState(null, "", window.location.pathname);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const navLinks = [
     { href: "#specializations", label: "Specializations" },
     { href: "#process", label: "Work with Us" },
@@ -55,6 +67,7 @@ export function Header() {
               key={link.href}
               className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.label}
             </a>
@@ -72,6 +85,7 @@ export function Header() {
           <a
             className="bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-3 scale-95 active:scale-90 transition-transform hover:brightness-110 uppercase"
             href="#consult"
+            onClick={(e) => handleNavClick(e, "#consult")}
           >
             GET_IN_TOUCH
           </a>
@@ -107,7 +121,7 @@ export function Header() {
                 key={link.href}
                 className="font-label-caps text-label-caps tracking-widest text-on-surface hover:text-primary-container transition-colors duration-300 uppercase"
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.label}
               </a>
@@ -115,7 +129,7 @@ export function Header() {
             <a
               className="bg-primary-container text-center text-on-primary font-label-caps text-label-caps px-6 py-4 mt-2 hover:brightness-110 uppercase"
               href="#consult"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, "#consult")}
             >
               GET_IN_TOUCH
             </a>

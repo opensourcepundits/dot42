@@ -23,6 +23,17 @@ export function Footer() {
     window.history.pushState(null, "", window.location.pathname);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <footer className="w-full py-16 bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center px-10 gap-10">
       <div className="flex flex-col items-center md:items-start gap-6">
@@ -41,24 +52,28 @@ export function Footer() {
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
           href="#specializations"
+          onClick={(e) => handleNavClick(e, '#specializations')}
         >
           Specializations
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
           href="#process"
+          onClick={(e) => handleNavClick(e, '#process')}
         >
           Work with Us
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
           href="#deliverables"
+          onClick={(e) => handleNavClick(e, '#deliverables')}
         >
           Deliverables
         </a>
         <a
           className="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary-container transition-colors duration-300 uppercase"
           href="#case-studies"
+          onClick={(e) => handleNavClick(e, '#case-studies')}
         >
           Case Studies
         </a>
