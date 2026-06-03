@@ -28,6 +28,7 @@ export function Header() {
       top: 0,
       behavior: "smooth"
     });
+    window.history.pushState(null, "", window.location.pathname);
   };
 
   const navLinks = [

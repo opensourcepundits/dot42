@@ -20,6 +20,7 @@ export function Footer() {
       top: 0,
       behavior: "smooth"
     });
+    window.history.pushState(null, "", window.location.pathname);
   };
 
   return (
