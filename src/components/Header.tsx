@@ -45,7 +45,8 @@ export function Header() {
 
   const navLinks = [
     { href: "#specializations", label: "Specializations" },
-    { href: "#process", label: "Work with Us" },
+    { href: "#why-work-with-us", label: "Why Work with Us" },
+    { href: "#process", label: "Our Flow" },
     { href: "#deliverables", label: "Deliverables" },
     { href: "#case-studies", label: "Case Studies" },
   ];

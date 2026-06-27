@@ -102,10 +102,10 @@ export function Process() {
     <section className="px-10 pb-section-gap max-w-7xl mx-auto" id="process">
       <header className="mb-20">
         <div className="font-label-caps text-label-caps text-primary-container mb-4 tracking-[0.2em] uppercase">
-          02 // PIPELINE
+          03 // PIPELINE
         </div>
         <h2 className="font-headline-lg text-headline-lg max-w-3xl mb-4 text-on-surface">
-          Our Pipeline
+          Our Flow
         </h2>
         <div className="w-24 h-1 bg-primary-container"></div>
       </header>
