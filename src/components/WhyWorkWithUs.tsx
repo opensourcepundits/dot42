@@ -12,8 +12,8 @@ const reasons = [
     icon: Puzzle,
   },
   {
-    title: "Absolute Confidentiality",
-    description: "Your proprietary data remains yours. We operate under strict NDAs and ensure zero data leakage across our localized sandbox environments.",
+    title: "Data Privacy & Integrity",
+    description: "Your proprietary data remains yours. We prioritize data integrity, operate under strict NDAs, and ensure zero data leakage across our localized sandbox environments.",
     icon: ShieldCheck,
   },
   {
@@ -43,11 +43,11 @@ export function WhyWorkWithUs() {
               key={index} 
               className="bg-surface-container border border-outline-variant/30 rounded-lg p-8 md:p-10 flex flex-col gap-6 hover:border-primary-container/50 transition-colors group cursor-default h-full"
             >
-              <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-6">
-                <div className="bg-surface-container-low p-3 md:p-4 rounded-full shrink-0 group-hover:bg-primary-container/10 transition-colors">
-                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary-container" />
+              <div className="flex flex-row items-center gap-4">
+                <div className="bg-surface-container-low p-3 rounded-full shrink-0 group-hover:bg-primary-container/10 transition-colors">
+                  <item.icon className="w-6 h-6 text-primary-container" />
                 </div>
-                <h3 className="font-headline-lg text-xl md:text-2xl text-on-surface m-0 md:!mb-4">
+                <h3 className="font-headline-lg text-xl md:text-2xl text-on-surface m-0">
                   {item.title}
                 </h3>
               </div>
