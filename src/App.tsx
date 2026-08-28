@@ -5,7 +5,7 @@ import { WhyWorkWithUs } from "./components/WhyWorkWithUs";
 import { Process } from "./components/Process";
 import { Deliverables } from "./components/Deliverables";
 import { CaseStudies } from "./components/CaseStudies";
-import { Consult } from "./components/ConsultSection";
+import { Consult } from "./components/Consult";
 import { Footer } from "./components/Footer";
 
 export default function App() {
